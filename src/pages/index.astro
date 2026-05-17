@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { withBase } from '../lib/url';
 import home from '../../content/pages/home.json';
 
 const { seo, hero, cards, cta } = home;
@@ -27,7 +28,7 @@ const IMAGE_ICON =
       class="hero-bg"
       role="img"
       aria-label={hero.imageAlt}
-      style={`background-image: url("${hero.image}")`}
+      style={`background-image: url("${withBase(hero.image)}")`}
     >
     </div>
     <div class="hero-content reveal">
@@ -36,7 +37,7 @@ const IMAGE_ICON =
         <span class="brand">{hero.brand}</span>
       </h1>
       <p class="subtitle">{hero.subtitle}</p>
-      <a class="btn btn-primary" href={hero.ctaHref}>
+      <a class="btn btn-primary" href={withBase(hero.ctaHref)}>
         <span>{hero.ctaLabel}</span>
       </a>
     </div>
@@ -53,7 +54,7 @@ const IMAGE_ICON =
               <h2 class="h-eyebrow">{card.title}</h2>
               <div class="media">
                 {card.image ? (
-                  <img src={card.image} alt={card.imageAlt} />
+                  <img src={withBase(card.image)} alt={card.imageAlt} />
                 ) : (
                   <div
                     class:list={[
@@ -72,7 +73,7 @@ const IMAGE_ICON =
               <div class="divider"></div>
               <a
                 class:list={['btn', card.buttonStyle === 'secondary' ? 'btn-secondary' : 'btn-primary']}
-                href={card.buttonHref}
+                href={withBase(card.buttonHref)}
               >
                 <span>{card.buttonLabel}</span>
                 <span class="btn-caret" aria-hidden="true">›</span>
@@ -89,7 +90,7 @@ const IMAGE_ICON =
     <div class="reveal">
       <h2 id="cta-h"><span>{cta.heading}</span></h2>
       <p>{cta.text}</p>
-      <a class="btn btn-primary" href={cta.buttonHref}>
+      <a class="btn btn-primary" href={withBase(cta.buttonHref)}>
         <span>{cta.buttonLabel}</span>
         <span class="btn-caret" aria-hidden="true">›</span>
       </a>

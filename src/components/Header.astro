@@ -1,9 +1,10 @@
 ---
 import site from '../../content/global/site.json';
+import { withBase } from '../lib/url';
 ---
 
 <header class="site-header">
-  <a class="logo" href="/" aria-label={`${site.logoName} ${site.logoCaption} home`}>
+  <a class="logo" href={withBase('/')} aria-label={`${site.logoName} ${site.logoCaption} home`}>
     <svg class="logo-sun" viewBox="0 0 32 32" fill="none" aria-hidden="true">
       <circle cx="16" cy="20" r="4" fill="#fff" opacity="0.95"></circle>
       <g stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.9">
@@ -25,7 +26,7 @@ import site from '../../content/global/site.json';
       {
         site.nav.map((item) => (
           <li>
-            <a href={item.href} aria-current={item.href === '/' ? 'page' : undefined}>
+            <a href={withBase(item.href)} aria-current={item.href === '/' ? 'page' : undefined}>
               {item.label}
             </a>
           </li>
@@ -58,7 +59,7 @@ import site from '../../content/global/site.json';
   </button>
   {
     site.nav.map((item) => (
-      <a href={item.href} data-close>
+      <a href={withBase(item.href)} data-close>
         {item.label}
       </a>
     ))

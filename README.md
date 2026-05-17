@@ -27,6 +27,22 @@ All editable text and images live in plain files under `content/`:
 Non-technical editors should use the **`/admin`** form editor rather than
 editing the JSON by hand. The Astro pages read these files and render the site.
 
+## Preview on GitHub Pages
+
+A GitHub Actions workflow (`.github/workflows/deploy.yml`) builds the site and
+publishes it to GitHub Pages on every push to `claude/review-plan-website-f8xS4`
+(and can be run manually from the Actions tab).
+
+**One-time setup:** in the repository, open **Settings → Pages** and set
+**Source** to **GitHub Actions**. The workflow also attempts to enable this
+automatically on its first run.
+
+Live preview: **https://srgolubev.github.io/Nina-s/**
+
+This is the public site only — the `/admin` editor is not part of the Pages
+preview (it needs TinaCMS Cloud, see below). The Pages build runs with
+`BASE_PATH=/Nina-s` because a project site is served from a subpath.
+
 ## Connecting the admin for production
 
 The hosted `/admin` needs a free TinaCMS Cloud project so editors can log in
