@@ -1,0 +1,23 @@
+{
+  "logoName": "Tranquil Haven",
+  "logoCaption": "Coaching",
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "About", "href": "#about" },
+    { "label": "Coaching", "href": "#coaching" },
+    { "label": "Credentials", "href": "#credentials" },
+    { "label": "Insights", "href": "#insights" },
+    { "label": "Resources", "href": "#resources" },
+    { "label": "Testimonials", "href": "#testimonials" },
+    { "label": "FAQ", "href": "#faq" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "socials": [
+    { "platform": "facebook", "url": "#" },
+    { "platform": "instagram", "url": "#" },
+    { "platform": "linkedin", "url": "#" },
+    { "platform": "twitter", "url": "#" }
+  ],
+  "disclaimer": "TranquilHaven Coaching provides coaching services only and does not provide psychotherapy, counseling, or mental health treatment.",
+  "copyright": "© 2026 TranquilHaven Coaching · Less noise. More you."
+}

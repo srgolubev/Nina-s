@@ -1,0 +1,20 @@
+{
+  "name": "tranquilhaven-coaching",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "tinacms dev -c \"astro dev\"",
+    "build": "astro build",
+    "build:cms": "tinacms build && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^6.3.3",
+    "tinacms": "^3.8.1"
+  },
+  "devDependencies": {
+    "@tinacms/cli": "^2.3.1"
+  }
+}

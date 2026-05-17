@@ -1,0 +1,53 @@
+{
+  "seo": {
+    "title": "TranquilHaven Coaching — Less noise. More you.",
+    "description": "A private, psychologically-informed coaching practice for women seeking emotional clarity, calmer relationships, and thoughtful personal growth."
+  },
+  "hero": {
+    "image": "/images/hero-coast.png",
+    "imageAlt": "Calm coastal sunset with sailboats moored near a small white lighthouse on a stone jetty, and a soft sandy beach in the foreground.",
+    "welcome": "Welcome to",
+    "brand": "Tranquil Haven Coaching",
+    "subtitle": "Find Your Inner Peace and Balance",
+    "ctaLabel": "Start Your Journey",
+    "ctaHref": "#contact"
+  },
+  "cards": [
+    {
+      "title": "About Me",
+      "variant": "portrait",
+      "image": "",
+      "imageAlt": "Coach portrait",
+      "body": "Guiding you to a place of calm and clarity",
+      "buttonLabel": "Learn More",
+      "buttonHref": "#about-page",
+      "buttonStyle": "primary"
+    },
+    {
+      "title": "My Services",
+      "variant": "standard",
+      "image": "",
+      "imageAlt": "Personal coaching for mindful living",
+      "body": "Personal Coaching for Mindful Living",
+      "buttonLabel": "Discover More",
+      "buttonHref": "#coaching",
+      "buttonStyle": "primary"
+    },
+    {
+      "title": "Client Testimonials",
+      "variant": "standard",
+      "image": "",
+      "imageAlt": "What our clients are saying",
+      "body": "What Our Clients Are Saying",
+      "buttonLabel": "Read Reviews",
+      "buttonHref": "#testimonials",
+      "buttonStyle": "secondary"
+    }
+  ],
+  "cta": {
+    "heading": "Ready to Find Your Haven?",
+    "text": "Get in touch to begin your journey.",
+    "buttonLabel": "Contact Me",
+    "buttonHref": "#contact-form"
+  }
+}

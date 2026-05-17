@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import home from '../../content/pages/home.json';
+
+const { seo, hero, cards, cta } = home;
+
+const PLACEHOLDER_CLASSES = [
+  'media-placeholder--about',
+  'media-placeholder--services',
+  'media-placeholder--reviews',
+];
+
+const PERSON_ICON =
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="9" r="3.7"/><path d="M5.2 19.4c1.3-3.5 4.1-5.2 6.8-5.2s5.5 1.7 6.8 5.2" stroke-linecap="round"/></svg>';
+const IMAGE_ICON =
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3.3" y="5" width="17.4" height="14" rx="2.6"/><circle cx="8.6" cy="10" r="1.9"/><path d="M4 16.6l4.6-4.1 3.6 3.1 3-2.6 5.1 4.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+---
+
+<Base title={seo.title} description={seo.description}>
+  <Header />
+
+  <!-- ====== HERO ====== -->
+  <section class="hero" aria-labelledby="hero-h">
+    <div
+      class="hero-bg"
+      role="img"
+      aria-label={hero.imageAlt}
+      style={`background-image: url("${hero.image}")`}
+    >
+    </div>
+    <div class="hero-content reveal">
+      <h1 id="hero-h">
+        <span class="welcome">{hero.welcome}</span>
+        <span class="brand">{hero.brand}</span>
+      </h1>
+      <p class="subtitle">{hero.subtitle}</p>
+      <a class="btn btn-primary" href={hero.ctaHref}>
+        <span>{hero.ctaLabel}</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ====== THREE CARDS ====== -->
+  <section class="cards-section" id="about">
+    <div class="waterline" aria-hidden="true"></div>
+    <div class="container">
+      <div class="cards">
+        {
+          cards.map((card, i) => (
+            <article class:list={['card', 'reveal', card.variant === 'portrait' && 'is-portrait']}>
+              <h2 class="h-eyebrow">{card.title}</h2>
+              <div class="media">
+                {card.image ? (
+                  <img src={card.image} alt={card.imageAlt} />
+                ) : (
+                  <div
+                    class:list={[
+                      'media-placeholder',
+                      PLACEHOLDER_CLASSES[i] ?? 'media-placeholder--services',
+                    ]}
+                    role="img"
+                    aria-label={`${card.title} — photo coming soon`}
+                  >
+                    <Fragment set:html={card.variant === 'portrait' ? PERSON_ICON : IMAGE_ICON} />
+                    <span>{card.variant === 'portrait' ? 'Coach photo' : 'Photo coming soon'}</span>
+                  </div>
+                )}
+              </div>
+              <p class="body">{card.body}</p>
+              <div class="divider"></div>
+              <a
+                class:list={['btn', card.buttonStyle === 'secondary' ? 'btn-secondary' : 'btn-primary']}
+                href={card.buttonHref}
+              >
+                <span>{card.buttonLabel}</span>
+                <span class="btn-caret" aria-hidden="true">›</span>
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CTA BAND ====== -->
+  <section class="cta-band" id="contact" aria-labelledby="cta-h">
+    <div class="reveal">
+      <h2 id="cta-h"><span>{cta.heading}</span></h2>
+      <p>{cta.text}</p>
+      <a class="btn btn-primary" href={cta.buttonHref}>
+        <span>{cta.buttonLabel}</span>
+        <span class="btn-caret" aria-hidden="true">›</span>
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Base>
