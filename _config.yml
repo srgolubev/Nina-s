@@ -1,0 +1,9 @@
+exclude:
+  - src/
+  - node_modules/
+  - .astro/
+  - dist/
+  - package.json
+  - package-lock.json
+  - tsconfig.json
+  - astro.config.mjs
