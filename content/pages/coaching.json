@@ -1,0 +1,32 @@
+{
+  "_template": "coaching",
+  "seo": {
+    "title": "Coaching — TranquilHaven Coaching",
+    "description": "Confidential, psychologically-informed online coaching for women navigating emotional overwhelm, relationship challenges, life transitions, and personal growth."
+  },
+  "title": "Coaching",
+  "tagline": "Private Online Coaching",
+  "intro": "TranquilHaven Coaching offers confidential, psychologically-informed coaching for women navigating emotional overwhelm, relationship challenges, life transitions, and personal growth.",
+  "supportiveTitle": "Coaching may be supportive for",
+  "supportive": [
+    "Relationship and communication difficulties",
+    "Family dynamics and boundaries",
+    "Relocation and life transitions",
+    "Emotional clarity and self-reflection",
+    "Multicultural and immigrant experiences",
+    "Reconnecting with personal identity and balance"
+  ],
+  "formatTitle": "Session Format",
+  "format": [
+    "50-minute private online sessions",
+    "Audio-only or Zoom sessions available",
+    "English and Russian language support"
+  ],
+  "investmentTitle": "Investment",
+  "price": "$100",
+  "priceNote": "per 50-minute session",
+  "noticeTitle": "Important Notice",
+  "notice": "Coaching is not psychotherapy, counseling, or mental health treatment. TranquilHaven Coaching does not diagnose or treat mental health conditions.",
+  "ctaLabel": "Book a Session",
+  "ctaHref": "/contact"
+}

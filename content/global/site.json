@@ -3,20 +3,24 @@
   "logoCaption": "Coaching",
   "nav": [
     { "label": "Home", "href": "/" },
-    { "label": "About", "href": "#about" },
-    { "label": "Coaching", "href": "#coaching" },
-    { "label": "Credentials", "href": "#credentials" },
-    { "label": "Insights", "href": "#insights" },
-    { "label": "Resources", "href": "#resources" },
-    { "label": "Testimonials", "href": "#testimonials" },
-    { "label": "FAQ", "href": "#faq" },
-    { "label": "Contact", "href": "#contact" }
+    { "label": "About", "href": "/about" },
+    { "label": "Coaching", "href": "/coaching" },
+    { "label": "Credentials", "href": "/credentials" },
+    { "label": "Insights", "href": "/insights" },
+    { "label": "Resources", "href": "/resources" },
+    { "label": "Testimonials", "href": "/testimonials" },
+    { "label": "FAQ", "href": "/faq" },
+    { "label": "Contact", "href": "/contact" }
   ],
   "socials": [
     { "platform": "facebook", "url": "#" },
     { "platform": "instagram", "url": "#" },
     { "platform": "linkedin", "url": "#" },
     { "platform": "twitter", "url": "#" }
+  ],
+  "footerLinks": [
+    { "label": "Privacy Policy", "href": "/privacy" },
+    { "label": "ICF Code of Ethics", "href": "https://coachingfederation.org/ethics/code-of-ethics" }
   ],
   "disclaimer": "TranquilHaven Coaching provides coaching services only and does not provide psychotherapy, counseling, or mental health treatment.",
   "copyright": "© 2026 TranquilHaven Coaching · Less noise. More you."

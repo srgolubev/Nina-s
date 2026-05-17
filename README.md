@@ -22,10 +22,24 @@ the content files directly — no account needed.
 All editable text and images live in plain files under `content/`:
 
 - `content/pages/home.json` — homepage (hero, three cards, call-to-action)
+- `content/pages/about.json` — About
+- `content/pages/coaching.json` — Coaching (service, format, price, notice)
+- `content/pages/credentials.json` — Credentials
+- `content/pages/insights.json` — Insights list and articles
+- `content/pages/resources.json` — Resources (reflective guides)
+- `content/pages/testimonials.json` — Testimonials
+- `content/pages/faq.json` — FAQ
+- `content/pages/contact.json` — Contact (Calendly link, contact form)
+- `content/pages/privacy.json` — Privacy Policy
 - `content/global/site.json` — header & footer (logo, menu, social links, disclaimer)
 
 Non-technical editors should use the **`/admin`** form editor rather than
 editing the JSON by hand. The Astro pages read these files and render the site.
+
+Two pages need details from the coach before they go live: in
+`content/pages/contact.json`, set `calendlyUrl` (the Calendly booking link)
+and `formEndpoint` (a Formspree form URL). Until then the booking widget and
+the message form show a friendly placeholder.
 
 ## Preview on GitHub Pages
 
@@ -74,8 +88,8 @@ content/            Editable content (managed by TinaCMS)
 public/images/      Image assets
 src/
   layouts/Base.astro      HTML shell, fonts, global styles
-  components/             Header, Footer
-  pages/index.astro       Homepage
+  components/             Header, Footer, PageHero, Blocks
+  pages/                  One .astro file per route (index, about, …)
   styles/global.css       Design system + all styles
 tina/config.ts      TinaCMS schema (which fields the admin shows)
 ```

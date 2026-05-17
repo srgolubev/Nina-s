@@ -1,0 +1,17 @@
+{
+  "_template": "contact",
+  "seo": {
+    "title": "Contact — TranquilHaven Coaching",
+    "description": "Book a free discovery call or send a message to begin coaching with TranquilHaven Coaching."
+  },
+  "title": "Contact",
+  "tagline": "Begin your journey",
+  "lead": "Ready to begin? Book a free discovery call, or send a message and we'll find a time that works for you.",
+  "bookingTitle": "Book a Discovery Call",
+  "bookingText": "Choose a time that suits you. Discovery calls are a relaxed, no-pressure way to see whether coaching feels right for you.",
+  "calendlyUrl": "",
+  "formTitle": "Send a Message",
+  "formText": "Prefer to write first? Share a little about what brings you here and you'll receive a reply by email.",
+  "formEndpoint": "",
+  "privacyNote": "Your name, email, and optional phone number are used only to schedule sessions and reply to you. This information is kept confidential and is never shared with third parties."
+}

@@ -1,0 +1,15 @@
+---
+interface Props {
+  title: string;
+  tagline?: string;
+}
+
+const { title, tagline } = Astro.props;
+---
+
+<section class="page-hero" aria-labelledby="page-hero-h">
+  <div class="page-hero-inner reveal">
+    {tagline && <p class="page-hero-tagline">{tagline}</p>}
+    <h1 id="page-hero-h">{title}</h1>
+  </div>
+</section>

@@ -1,0 +1,307 @@
+{
+  "_template": "faq",
+  "seo": {
+    "title": "FAQ — TranquilHaven Coaching",
+    "description": "Answers to common questions about coaching, sessions, confidentiality, pricing, and how TranquilHaven Coaching works."
+  },
+  "title": "FAQ",
+  "tagline": "What to expect",
+  "intro": "Honest answers to the questions that come up most — about coaching, how sessions work, confidentiality, and pricing.",
+  "items": [
+    {
+      "question": "What is TranquilHaven Coaching?",
+      "answer": [
+        {
+          "_template": "paragraph",
+          "text": "TranquilHaven Coaching is a private, psychologically-informed coaching practice for women seeking emotional clarity, relationship insight, and support through life transitions."
+        },
+        {
+          "_template": "paragraph",
+          "text": "The practice focuses on reflection, awareness, communication, and personal growth within a structured coaching framework."
+        }
+      ]
+    },
+    {
+      "question": "What is coaching?",
+      "answer": [
+        {
+          "_template": "paragraph",
+          "text": "Coaching is a structured, reflective and collaborative process that supports individuals in gaining clarity, understanding patterns, and making intentional decisions in their personal lives."
+        },
+        {
+          "_template": "paragraph",
+          "text": "Unlike therapy, coaching does not focus on diagnosing or treating mental health conditions or working through clinical trauma. Instead, it is forward-focused and centered on awareness, choice, and personal growth."
+        },
+        {
+          "_template": "paragraph",
+          "text": "In coaching conversations, clients are invited to slow down, reflect, and explore what feels unclear or overwhelming in a supportive and non-judgmental space."
+        },
+        {
+          "_template": "paragraph",
+          "text": "The coaching process may help you:"
+        },
+        {
+          "_template": "list",
+          "items": [
+            "Gain emotional clarity",
+            "Understand recurring patterns in relationships and communication",
+            "Explore decisions and life transitions",
+            "Develop greater self-awareness",
+            "Create more intentional ways of responding to life situations"
+          ]
+        },
+        {
+          "_template": "paragraph",
+          "text": "Coaching does not provide answers or directives. It creates space for insight, reflection, and personal alignment to emerge naturally. Coaching is like a lighthouse: it softly illuminates your path and helps you see more clearly, while you confidently navigate the journey yourself."
+        }
+      ]
+    },
+    {
+      "question": "What is your coaching style?",
+      "answer": [
+        {
+          "_template": "paragraph",
+          "text": "TranquilHaven Coaching is not a high-intensity, performance-driven or motivational coaching practice. This is not a “push harder, do more, achieve faster” approach."
+        },
+        {
+          "_template": "paragraph",
+          "text": "The work here is quiet, reflective, and grounded in emotional safety, clarity, and trust. Sessions are designed to create space rather than pressure — allowing thoughts, emotions, and patterns to unfold at a natural pace."
+        },
+        {
+          "_template": "paragraph",
+          "text": "The coaching approach is highly individualized and always client-centered. Each session adapts to what the client needs in the moment — whether that is reflection, silence, processing emotions, or gaining clarity through structured conversation."
+        },
+        {
+          "_template": "paragraph",
+          "text": "Within a coaching framework, clients are welcome to express a full range of human experience — including laughter, tears, frustration, or emotional release — as part of exploring what is present for them. The focus is always on supporting awareness and understanding, not directing emotional expression."
+        },
+        {
+          "_template": "paragraph",
+          "text": "The focus is not on forcing change, but on understanding yourself more deeply so that change becomes more intentional and sustainable."
+        }
+      ]
+    },
+    {
+      "question": "What kind of topics can coaching help with?",
+      "answer": [
+        {
+          "_template": "paragraph",
+          "text": "Coaching may be helpful for:"
+        },
+        {
+          "_template": "list",
+          "items": [
+            "Relationship communication and dynamics",
+            "Emotional overwhelm and clarity",
+            "Boundaries and self-awareness",
+            "Family and relational challenges",
+            "Life transitions and relocation",
+            "Identity and personal direction"
+          ]
+        },
+        {
+          "_template": "paragraph",
+          "text": "Coaching is focused on present and future-oriented reflection and personal growth."
+        }
+      ]
+    },
+    {
+      "question": "Do you guarantee results?",
+      "answer": [
+        {
+          "_template": "paragraph",
+          "text": "No. Coaching does not guarantee specific outcomes."
+        },
+        {
+          "_template": "paragraph",
+          "text": "Coaching is a collaborative process between coach and client. The coach does not “fix” or “change” the client, and does not provide direct solutions or instructions."
+        },
+        {
+          "_template": "paragraph",
+          "text": "Instead, the coach serves as a reflective partner — offering structure, perspective, and questions that may help bring clarity and awareness."
+        },
+        {
+          "_template": "paragraph",
+          "text": "The client remains fully responsible for their own decisions, actions, and results. Progress depends on the client's engagement, reflection, and willingness to apply insights in their own life."
+        },
+        {
+          "_template": "paragraph",
+          "text": "Coaching can be understood as having a lighthouse — it can illuminate direction and help you see more clearly, but you are the one who moves through the path."
+        }
+      ]
+    },
+    {
+      "question": "Is this therapy or counseling?",
+      "answer": [
+        {
+          "_template": "paragraph",
+          "text": "No. TranquilHaven Coaching does not provide psychotherapy, counseling, or mental health treatment."
+        },
+        {
+          "_template": "paragraph",
+          "text": "This is a coaching practice only. It does not diagnose, treat, or cure mental health conditions."
+        }
+      ]
+    },
+    {
+      "question": "Are you a licensed therapist or psychologist in the United States?",
+      "answer": [
+        {
+          "_template": "paragraph",
+          "text": "No. I am not a licensed therapist, psychologist, or mental health provider in the United States."
+        },
+        {
+          "_template": "paragraph",
+          "text": "I am an ICF Member and trained coach with extensive education in psychology-informed coaching and family systems approaches."
+        }
+      ]
+    },
+    {
+      "question": "Do you work with mental health conditions?",
+      "answer": [
+        {
+          "_template": "paragraph",
+          "text": "No. Coaching is not appropriate for clinical mental health conditions such as severe depression, PTSD, eating disorders, substance abuse, or suicidal ideation."
+        },
+        {
+          "_template": "paragraph",
+          "text": "If such concerns are present, I may recommend working with a licensed mental health professional."
+        }
+      ]
+    },
+    {
+      "question": "How do I know if coaching is right for me?",
+      "answer": [
+        {
+          "_template": "paragraph",
+          "text": "Coaching may be a good fit if you are seeking:"
+        },
+        {
+          "_template": "list",
+          "items": [
+            "More emotional clarity",
+            "Support in understanding patterns in relationships",
+            "Space for reflection and decision-making",
+            "A structured but non-clinical approach to personal growth"
+          ]
+        },
+        {
+          "_template": "paragraph",
+          "text": "If clinical support is needed, therapy may be more appropriate."
+        }
+      ]
+    },
+    {
+      "question": "How are sessions conducted?",
+      "answer": [
+        {
+          "_template": "paragraph",
+          "text": "Sessions are conducted online via a secure video platform (Zoom), allowing for real-time, face-to-face coaching conversations."
+        },
+        {
+          "_template": "paragraph",
+          "text": "A stable, private environment is required for sessions, so clients are asked to join from a space where they can speak freely without interruptions and maintain confidentiality."
+        }
+      ]
+    },
+    {
+      "question": "Is confidentiality maintained?",
+      "answer": [
+        {
+          "_template": "paragraph",
+          "text": "Yes. All coaching sessions are confidential within legal and ethical limits."
+        },
+        {
+          "_template": "paragraph",
+          "text": "Confidentiality may be limited only in situations where there is risk of harm to self or others, as required by law."
+        },
+        {
+          "_template": "paragraph",
+          "text": "TranquilHaven Coaching operates in alignment with the International Coaching Federation (ICF) Code of Ethics."
+        },
+        {
+          "_template": "link",
+          "label": "Read the ICF Code of Ethics",
+          "url": "https://coachingfederation.org/ethics/code-of-ethics"
+        }
+      ]
+    },
+    {
+      "question": "What happens if we meet in public?",
+      "answer": [
+        {
+          "_template": "paragraph",
+          "text": "TranquilHaven Coaching is a professional relationship limited to scheduled coaching sessions. There is no expectation of social or personal interaction outside of this context."
+        },
+        {
+          "_template": "paragraph",
+          "text": "If we happen to meet in a public setting, I will respect your privacy and will not initiate a coaching-related interaction. Any brief exchange, if it occurs, will remain neutral and respectful."
+        },
+        {
+          "_template": "paragraph",
+          "text": "TranquilHaven Coaching reserves the right to discontinue services if professional boundaries are not maintained."
+        }
+      ]
+    },
+    {
+      "question": "How much does coaching cost?",
+      "answer": [
+        {
+          "_template": "paragraph",
+          "text": "Coaching is $100 per 50-minute session."
+        },
+        {
+          "_template": "paragraph",
+          "text": "Payment is private pay only and is required at the time of booking or prior to the session."
+        },
+        {
+          "_template": "paragraph",
+          "text": "Clients may choose to book individual sessions or purchase multiple sessions in advance."
+        },
+        {
+          "_template": "paragraph",
+          "text": "Please note: TranquilHaven Coaching does not bill insurance providers and coaching services are not covered by health insurance in the United States."
+        }
+      ]
+    },
+    {
+      "question": "Do you take notes during sessions?",
+      "answer": [
+        {
+          "_template": "paragraph",
+          "text": "Yes. Brief notes may be taken during sessions to support focus, reflection, and continuity of the coaching process."
+        },
+        {
+          "_template": "paragraph",
+          "text": "These notes are strictly for professional use within TranquilHaven Coaching and are kept confidential in accordance with ethical and legal standards. They are not shared with third parties."
+        }
+      ]
+    },
+    {
+      "question": "What personal information do you collect?",
+      "answer": [
+        {
+          "_template": "paragraph",
+          "text": "Basic personal information such as name, email address, and optionally a phone number is collected for the purpose of scheduling, communication, and providing coaching services."
+        },
+        {
+          "_template": "paragraph",
+          "text": "This information is kept confidential and is used only within TranquilHaven Coaching in accordance with ethical and legal standards."
+        },
+        {
+          "_template": "paragraph",
+          "text": "Coaching sessions and hours are documented in a professional coaching log for business records and professional development purposes, including ICF credentialing requirements. This log contains only basic session information (such as date and duration) and does not include session content. No session content is shared or submitted to any external organization."
+        }
+      ]
+    },
+    {
+      "question": "What is your cancellation policy?",
+      "answer": [
+        {
+          "_template": "paragraph",
+          "text": "Sessions may be rescheduled or canceled with at least 24 hours' notice. Late cancellations or missed sessions may be charged in full."
+        }
+      ]
+    }
+  ]
+}

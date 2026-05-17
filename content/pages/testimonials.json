@@ -1,0 +1,31 @@
+{
+  "_template": "testimonials",
+  "seo": {
+    "title": "Testimonials — TranquilHaven Coaching",
+    "description": "What clients say about coaching with TranquilHaven — a calmer, clearer, more reflective space."
+  },
+  "title": "Testimonials",
+  "tagline": "In their words",
+  "intro": "A few words from women who have shared this quiet, reflective space.",
+  "quotes": [
+    {
+      "quote": "I felt calmer and more clear after our sessions. The space felt very safe and non-judgmental.",
+      "author": "A.M."
+    },
+    {
+      "quote": "For the first time, I was able to slow down my thoughts and actually understand what I was feeling.",
+      "author": "S.K."
+    },
+    {
+      "quote": "It helped me see patterns in my relationships without feeling overwhelmed or pressured.",
+      "author": "M.R."
+    },
+    {
+      "quote": "The audio-only format made me feel very comfortable and private. That mattered a lot to me.",
+      "author": "Client, USA"
+    }
+  ],
+  "note": "Please note: Testimonials reflect individual experiences and do not guarantee results.",
+  "ctaLabel": "Start Your Journey",
+  "ctaHref": "/contact"
+}

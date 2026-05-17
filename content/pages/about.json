@@ -1,0 +1,32 @@
+{
+  "_template": "about",
+  "seo": {
+    "title": "About — TranquilHaven Coaching",
+    "description": "TranquilHaven Coaching is a private, psychologically-informed coaching practice for women seeking emotional clarity, calmer relationships, and thoughtful personal growth."
+  },
+  "title": "About",
+  "tagline": "Less noise. More you.",
+  "lead": "Less noise. More you. That's TranquilHaven Coaching.",
+  "body": [
+    {
+      "_template": "paragraph",
+      "text": "TranquilHaven Coaching is a private, psychologically-informed coaching practice for women seeking emotional clarity, calmer relationships, and thoughtful personal growth."
+    },
+    {
+      "_template": "paragraph",
+      "text": "As an ICF-Trained Coach and ICF Member with 1500+ hours of psychology training, the practice offers confidential coaching support for life transitions, relationships, family dynamics, multicultural experiences, and personal reflection."
+    },
+    {
+      "_template": "paragraph",
+      "text": "Created with privacy and depth in mind, TranquilHaven Coaching is designed for women who prefer a quieter, more thoughtful approach — free from hype, pressure, and constant social noise."
+    },
+    {
+      "_template": "paragraph",
+      "text": "Sessions are available online and may be conducted audio-only for additional comfort and privacy."
+    }
+  ],
+  "closing": "Your Tranquil Haven",
+  "note": "Please note: TranquilHaven Coaching provides coaching services only and does not provide psychotherapy, counseling, or mental health treatment.",
+  "ctaLabel": "Book a Free Discovery Call",
+  "ctaHref": "/contact"
+}

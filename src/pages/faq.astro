@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import Blocks from '../components/Blocks.astro';
+import page from '../../content/pages/faq.json';
+
+const { seo, title, tagline, intro, items } = page;
+---
+
+<Base title={seo.title} description={seo.description}>
+  <Header />
+  <PageHero title={title} tagline={tagline} />
+
+  <main class="page-main">
+    <div class="container narrow">
+      {intro && <p class="lead lead--center reveal">{intro}</p>}
+
+      <div class="faq-list">
+        {
+          items.map((item) => (
+            <details class="faq-item reveal">
+              <summary>
+                <span class="faq-q">{item.question}</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-answer prose">
+                <Blocks blocks={item.answer} />
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Base>

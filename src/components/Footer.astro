@@ -1,5 +1,6 @@
 ---
 import site from '../../content/global/site.json';
+import { withBase } from '../lib/url';
 
 const ICONS: Record<string, string> = {
   facebook:
@@ -20,6 +21,8 @@ const LABELS: Record<string, string> = {
 };
 
 const socials = site.socials.filter((s) => ICONS[s.platform]);
+const footerLinks = site.footerLinks ?? [];
+const isExternal = (href: string) => /^[a-z]+:/i.test(href) || href.startsWith('//');
 ---
 
 <footer class="site-footer">
@@ -31,6 +34,21 @@ const socials = site.socials.filter((s) => ICONS[s.platform]);
         ))
       }
     </nav>
+    {
+      footerLinks.length > 0 && (
+        <nav class="footer-links" aria-label="Footer">
+          {footerLinks.map((link) => (
+            <a
+              href={withBase(link.href)}
+              target={isExternal(link.href) ? '_blank' : undefined}
+              rel={isExternal(link.href) ? 'noopener noreferrer' : undefined}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      )
+    }
     <p class="disclaimer">{site.disclaimer}</p>
     <p class="copyright">{site.copyright}</p>
   </div>

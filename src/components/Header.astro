@@ -1,6 +1,10 @@
 ---
 import site from '../../content/global/site.json';
 import { withBase } from '../lib/url';
+
+const strip = (p: string) => (p !== '/' && p.endsWith('/') ? p.slice(0, -1) : p);
+const current = strip(Astro.url.pathname);
+const isActive = (href: string) => strip(withBase(href)) === current;
 ---
 
 <header class="site-header">
@@ -26,7 +30,7 @@ import { withBase } from '../lib/url';
       {
         site.nav.map((item) => (
           <li>
-            <a href={withBase(item.href)} aria-current={item.href === '/' ? 'page' : undefined}>
+            <a href={withBase(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>
               {item.label}
             </a>
           </li>
@@ -59,7 +63,7 @@ import { withBase } from '../lib/url';
   </button>
   {
     site.nav.map((item) => (
-      <a href={withBase(item.href)} data-close>
+      <a href={withBase(item.href)} data-close aria-current={isActive(item.href) ? 'page' : undefined}>
         {item.label}
       </a>
     ))

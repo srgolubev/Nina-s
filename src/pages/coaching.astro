@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import { withBase } from '../lib/url';
+import page from '../../content/pages/coaching.json';
+
+const {
+  seo,
+  title,
+  tagline,
+  intro,
+  supportiveTitle,
+  supportive,
+  formatTitle,
+  format,
+  investmentTitle,
+  price,
+  priceNote,
+  noticeTitle,
+  notice,
+  ctaLabel,
+  ctaHref,
+} = page;
+---
+
+<Base title={seo.title} description={seo.description}>
+  <Header />
+  <PageHero title={title} tagline={tagline} />
+
+  <main class="page-main">
+    <div class="container narrow">
+      <p class="lead reveal">{intro}</p>
+
+      <section class="panel reveal" aria-labelledby="supportive-h">
+        <h2 id="supportive-h" class="panel-title">{supportiveTitle}</h2>
+        <ul class="feature-list">
+          {supportive.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+
+      <div class="panel-grid">
+        <section class="panel reveal" aria-labelledby="format-h">
+          <h2 id="format-h" class="panel-title">{formatTitle}</h2>
+          <ul class="feature-list">
+            {format.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+
+        <section class="panel panel--price reveal" aria-labelledby="investment-h">
+          <h2 id="investment-h" class="panel-title">{investmentTitle}</h2>
+          <p class="price">{price}</p>
+          <p class="price-note">{priceNote}</p>
+        </section>
+      </div>
+
+      <section class="note note--block reveal" aria-labelledby="notice-h">
+        <h2 id="notice-h" class="note-title">{noticeTitle}</h2>
+        <p>{notice}</p>
+      </section>
+
+      {
+        ctaLabel && (
+          <div class="page-cta reveal">
+            <a class="btn btn-primary" href={withBase(ctaHref)}>
+              <span>{ctaLabel}</span>
+              <span class="btn-caret" aria-hidden="true">›</span>
+            </a>
+          </div>
+        )
+      }
+    </div>
+  </main>
+
+  <Footer />
+</Base>

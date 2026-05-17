@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import page from '../../content/pages/contact.json';
+
+const {
+  seo,
+  title,
+  tagline,
+  lead,
+  bookingTitle,
+  bookingText,
+  calendlyUrl,
+  formTitle,
+  formText,
+  formEndpoint,
+  privacyNote,
+} = page;
+---
+
+<Base title={seo.title} description={seo.description}>
+  <Header />
+  <PageHero title={title} tagline={tagline} />
+
+  <main class="page-main">
+    <div class="container">
+      <p class="lead lead--center reveal">{lead}</p>
+
+      <div class="contact-grid">
+        <section class="panel contact-block reveal" aria-labelledby="booking-h">
+          <h2 id="booking-h" class="panel-title">{bookingTitle}</h2>
+          {bookingText && <p>{bookingText}</p>}
+          {
+            calendlyUrl ? (
+              <div
+                class="calendly-inline-widget"
+                data-url={calendlyUrl}
+                style="min-width:280px;height:640px;"
+              />
+              <script is:inline src="https://assets.calendly.com/assets/external/widget.js" async />
+            ) : (
+              <p class="embed-placeholder">
+                Online booking will appear here once the Calendly link is added.
+              </p>
+            )
+          }
+        </section>
+
+        <section class="panel contact-block reveal" aria-labelledby="form-h">
+          <h2 id="form-h" class="panel-title">{formTitle}</h2>
+          {formText && <p>{formText}</p>}
+
+          <form
+            class="contact-form"
+            method="POST"
+            action={formEndpoint || undefined}
+          >
+            <p class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required />
+            </p>
+            <p class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required />
+            </p>
+            <p class="field">
+              <label for="phone">Phone <span class="optional">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" />
+            </p>
+            <p class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </p>
+            <p class="field field--honeypot" aria-hidden="true">
+              <label for="company">Leave this field empty</label>
+              <input type="text" id="company" name="_gotcha" tabindex="-1" autocomplete="off" />
+            </p>
+            <button type="submit" class="btn btn-primary" disabled={!formEndpoint}>
+              <span>Send Message</span>
+            </button>
+            {
+              !formEndpoint && (
+                <p class="embed-placeholder">
+                  The message form will be active once the form endpoint is configured.
+                </p>
+              )
+            }
+          </form>
+        </section>
+      </div>
+
+      {privacyNote && <p class="note reveal">{privacyNote}</p>}
+    </div>
+  </main>
+
+  <Footer />
+</Base>

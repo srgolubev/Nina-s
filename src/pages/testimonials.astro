@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import { withBase } from '../lib/url';
+import page from '../../content/pages/testimonials.json';
+
+const { seo, title, tagline, intro, quotes, note, ctaLabel, ctaHref } = page;
+---
+
+<Base title={seo.title} description={seo.description}>
+  <Header />
+  <PageHero title={title} tagline={tagline} />
+
+  <main class="page-main">
+    <div class="container">
+      {intro && <p class="lead lead--center reveal">{intro}</p>}
+
+      <div class="quote-grid">
+        {
+          quotes.map((item) => (
+            <figure class="quote-card reveal">
+              <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+              <blockquote>{item.quote}</blockquote>
+              <figcaption>— {item.author}</figcaption>
+            </figure>
+          ))
+        }
+      </div>
+
+      {note && <p class="note reveal">{note}</p>}
+
+      {
+        ctaLabel && (
+          <div class="page-cta reveal">
+            <a class="btn btn-primary" href={withBase(ctaHref)}>
+              <span>{ctaLabel}</span>
+              <span class="btn-caret" aria-hidden="true">›</span>
+            </a>
+          </div>
+        )
+      }
+    </div>
+  </main>
+
+  <Footer />
+</Base>

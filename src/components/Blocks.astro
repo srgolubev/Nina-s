@@ -1,0 +1,48 @@
+---
+import { withBase } from '../lib/url';
+
+interface Block {
+  _template: string;
+  text?: string;
+  items?: string[];
+  label?: string;
+  url?: string;
+}
+
+interface Props {
+  blocks: Block[];
+}
+
+const { blocks } = Astro.props;
+const isExternal = (url: string) => /^[a-z]+:/i.test(url) || url.startsWith('//');
+---
+
+{
+  blocks.map((block) => {
+    if (block._template === 'list') {
+      return (
+        <ul class="block-list">
+          {(block.items ?? []).map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      );
+    }
+    if (block._template === 'link') {
+      const url = block.url ?? '#';
+      const external = isExternal(url);
+      return (
+        <p class="block-link">
+          <a
+            href={external ? url : withBase(url)}
+            target={external ? '_blank' : undefined}
+            rel={external ? 'noopener noreferrer' : undefined}
+          >
+            {block.label ?? url}
+          </a>
+        </p>
+      );
+    }
+    return <p>{block.text}</p>;
+  })
+}

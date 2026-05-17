@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import { withBase } from '../lib/url';
+---
+
+<Base
+  title="Page Not Found — TranquilHaven Coaching"
+  description="The page you were looking for could not be found."
+>
+  <Header />
+  <PageHero title="Page Not Found" tagline="404" />
+
+  <main class="page-main">
+    <div class="container narrow">
+      <p class="lead lead--center reveal">
+        The page you were looking for has drifted off course. Let's guide you back to calmer water.
+      </p>
+      <div class="page-cta reveal">
+        <a class="btn btn-primary" href={withBase('/')}>
+          <span>Return Home</span>
+          <span class="btn-caret" aria-hidden="true">›</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Base>

@@ -1,0 +1,87 @@
+{
+  "_template": "resources",
+  "seo": {
+    "title": "Resources — TranquilHaven Coaching",
+    "description": "Gentle reflective guides and check-ins to support emotional clarity, boundaries, and life transitions."
+  },
+  "title": "Resources",
+  "tagline": "Gentle practices",
+  "intro": "Reflective prompts and gentle check-ins you can return to anytime — small practices that make space for clarity, without pressure.",
+  "items": [
+    {
+      "title": "5 Questions for Emotional Clarity",
+      "body": [
+        {
+          "_template": "paragraph",
+          "text": "When things feel emotionally unclear, try gently sitting with these questions:"
+        },
+        {
+          "_template": "list",
+          "items": [
+            "What am I feeling right now, without trying to fix it?",
+            "What part of this situation feels heavy or unclear?",
+            "What do I need more of in this moment — space, clarity, or support?",
+            "What am I trying to control that is not fully mine to control?",
+            "If I slowed down, what would become more visible?"
+          ]
+        },
+        {
+          "_template": "paragraph",
+          "text": "There is no need to rush answers. Clarity often comes through noticing, not forcing."
+        }
+      ]
+    },
+    {
+      "title": "A Gentle Boundary Check-In",
+      "body": [
+        {
+          "_template": "paragraph",
+          "text": "Boundaries are not about distance. They are about clarity."
+        },
+        {
+          "_template": "paragraph",
+          "text": "You may find it helpful to reflect:"
+        },
+        {
+          "_template": "list",
+          "items": [
+            "Where do I feel stretched or emotionally overextended?",
+            "What am I saying “yes” to that feels misaligned?",
+            "What would a softer, more honest “no” look like here?",
+            "What feels emotionally safe for me right now?"
+          ]
+        },
+        {
+          "_template": "paragraph",
+          "text": "Boundaries often begin as internal awareness before they become external action."
+        }
+      ]
+    },
+    {
+      "title": "When You Feel Stuck in a Life Transition",
+      "body": [
+        {
+          "_template": "paragraph",
+          "text": "Transitions can feel confusing because old patterns no longer fit, but new ones are not yet clear."
+        },
+        {
+          "_template": "paragraph",
+          "text": "In these moments, it may help to slow down and ask:"
+        },
+        {
+          "_template": "list",
+          "items": [
+            "What is actually changing in my life right now?",
+            "What feels uncertain — and what is still stable?",
+            "What expectations am I holding that no longer match reality?",
+            "What would it look like to give myself more time?"
+          ]
+        },
+        {
+          "_template": "paragraph",
+          "text": "Stuckness is often not a lack of direction, but a process of adjustment."
+        }
+      ]
+    }
+  ]
+}
