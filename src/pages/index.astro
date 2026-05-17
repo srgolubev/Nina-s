@@ -20,7 +20,7 @@ const IMAGE_ICON =
 ---
 
 <Base title={seo.title} description={seo.description}>
-  <Header />
+  <Header light />
 
   <!-- ====== HERO ====== -->
   <section class="hero" aria-labelledby="hero-h">
@@ -28,7 +28,7 @@ const IMAGE_ICON =
       class="hero-bg"
       role="img"
       aria-label={hero.imageAlt}
-      style={`background-image: url("${withBase(hero.image)}")`}
+      style={`--hero-img: url("${withBase(hero.image)}")`}
     >
     </div>
     <div class="hero-content reveal">

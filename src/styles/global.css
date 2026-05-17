@@ -144,6 +144,36 @@ button { font: inherit; cursor: pointer; }
 .burger:hover { background: rgba(255,255,255,0.28); }
 .burger svg { display: block; width: 22px; height: 22px; }
 
+/* Header over a light background (homepage hero) — dark, readable text. */
+.site-header.is-on-light .logo {
+  color: var(--ink);
+  text-shadow: none;
+}
+.site-header.is-on-light .logo-caption {
+  color: var(--ink-soft);
+  text-shadow: none;
+  opacity: 1;
+}
+.site-header.is-on-light .nav-list a {
+  color: var(--ink);
+  text-shadow: none;
+}
+.site-header.is-on-light .nav-list a:hover {
+  color: var(--teal);
+  opacity: 1;
+}
+.site-header.is-on-light .nav-list a[aria-current="page"]::after {
+  background: var(--ink);
+}
+.site-header.is-on-light .burger {
+  background: rgba(64, 69, 63, 0.07);
+  border-color: rgba(64, 69, 63, 0.22);
+  color: var(--ink);
+}
+.site-header.is-on-light .burger:hover {
+  background: rgba(64, 69, 63, 0.14);
+}
+
 /* ---------- HERO ---------- */
 .hero {
   position: relative;
@@ -152,19 +182,24 @@ button { font: inherit; cursor: pointer; }
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--ink);
   padding: 120px 24px 80px;
   overflow: hidden;
   isolation: isolate;
 }
+/* The coastal photo always fits by width (100% auto) so the harbour and
+   lighthouse are never cropped. It is anchored to the bottom; the space
+   left above it is filled by a lilac sky gradient whose end colour matches
+   the photo's top edge (#BFC6E1), making the join seamless. */
 .hero-bg {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background-size: cover;
-  background-position: center 38%;
+  background:
+    var(--hero-img) center bottom / 100% auto no-repeat,
+    linear-gradient(180deg, #C5CBE3 0%, #C1C8E1 55%, #BFC6E1 100%);
 }
-/* Soft top overlay for header contrast + bottom fade into sand */
+/* Bottom fade into the sand-coloured section below. */
 .hero::before {
   content: "";
   position: absolute;
@@ -172,28 +207,26 @@ button { font: inherit; cursor: pointer; }
   z-index: -1;
   background:
     linear-gradient(180deg,
-      rgba(64, 84, 96, 0.28) 0%,
-      rgba(64, 84, 96, 0.10) 22%,
-      rgba(64, 84, 96, 0.0) 45%,
-      rgba(239, 227, 210, 0.0) 70%,
-      rgba(239, 227, 210, 0.55) 92%,
+      rgba(239, 227, 210, 0) 80%,
+      rgba(239, 227, 210, 0.55) 93%,
       var(--sand) 100%);
+  pointer-events: none;
 }
-/* central radial halo to lift hero text */
+/* Soft cream glow that lifts the dark hero text off the photo. */
 .hero::after {
   content: "";
   position: absolute;
   left: 50%;
-  top: 48%;
+  top: 46%;
   transform: translate(-50%, -50%);
-  width: min(900px, 90vw);
-  height: 520px;
+  width: min(960px, 94vw);
+  height: 540px;
   z-index: -1;
   background: radial-gradient(ellipse at center,
-    rgba(64, 84, 96, 0.32) 0%,
-    rgba(64, 84, 96, 0.18) 35%,
-    rgba(64, 84, 96, 0.0) 70%);
-  filter: blur(10px);
+    rgba(251, 248, 243, 0.72) 0%,
+    rgba(251, 248, 243, 0.40) 38%,
+    rgba(251, 248, 243, 0) 72%);
+  filter: blur(14px);
   pointer-events: none;
 }
 
@@ -205,8 +238,8 @@ button { font: inherit; cursor: pointer; }
 .hero h1 {
   margin: 0 0 18px;
   font-weight: 400;
-  color: #fff;
-  text-shadow: 0 2px 18px rgba(40, 56, 70, 0.45);
+  color: var(--teal-ink);
+  text-shadow: 0 1px 18px rgba(251, 248, 243, 0.75);
 }
 .hero h1 .welcome {
   display: block;
@@ -228,11 +261,11 @@ button { font: inherit; cursor: pointer; }
 .hero .subtitle {
   margin: 8px 0 36px;
   font-family: var(--font-serif);
-  font-weight: 400;
+  font-weight: 500;
   font-size: clamp(20px, 2.2vw, 28px);
   letter-spacing: 0.04em;
-  color: #fff;
-  text-shadow: 0 1px 14px rgba(40, 56, 70, 0.4);
+  color: var(--ink);
+  text-shadow: 0 1px 12px rgba(251, 248, 243, 0.85);
 }
 
 /* ---------- BUTTONS ---------- */

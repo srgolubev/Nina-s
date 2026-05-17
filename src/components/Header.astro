@@ -2,16 +2,24 @@
 import site from '../../content/global/site.json';
 import { withBase } from '../lib/url';
 
+interface Props {
+  // Set on pages where the header sits over a light background (the homepage
+  // hero), so its text switches from white to a dark, readable colour.
+  light?: boolean;
+}
+
+const { light = false } = Astro.props;
+
 const strip = (p: string) => (p !== '/' && p.endsWith('/') ? p.slice(0, -1) : p);
 const current = strip(Astro.url.pathname);
 const isActive = (href: string) => strip(withBase(href)) === current;
 ---
 
-<header class="site-header">
+<header class:list={['site-header', light && 'is-on-light']}>
   <a class="logo" href={withBase('/')} aria-label={`${site.logoName} ${site.logoCaption} home`}>
     <svg class="logo-sun" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <circle cx="16" cy="20" r="4" fill="#fff" opacity="0.95"></circle>
-      <g stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity="0.9">
+      <circle cx="16" cy="20" r="4" fill="currentColor" opacity="0.95"></circle>
+      <g stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.9">
         <line x1="16" y1="10" x2="16" y2="6"></line>
         <line x1="10" y1="14" x2="7" y2="11"></line>
         <line x1="22" y1="14" x2="25" y2="11"></line>
