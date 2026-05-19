@@ -382,21 +382,15 @@ button { font: inherit; cursor: pointer; }
 }
 
 .card .media {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 10px;
-  overflow: hidden;
-  background: var(--sand-soft);
-  margin-bottom: 22px;
-  position: relative;
-}
-.card.is-portrait .media {
-  aspect-ratio: 1 / 1;
   width: 200px;
   height: 200px;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
+  overflow: hidden;
+  background: var(--sand-soft);
   margin-top: 6px;
   margin-bottom: 26px;
+  position: relative;
   box-shadow: 0 0 0 6px var(--cream), 0 0 0 7px var(--sand-deep);
 }
 .card .media img {
@@ -422,11 +416,10 @@ button { font: inherit; cursor: pointer; }
 .media-placeholder--services { background: linear-gradient(150deg, #CFE0E8 0%, #BBD0DD 100%); }
 .media-placeholder--reviews  { background: linear-gradient(150deg, #ECDDC5 0%, #E0CDB4 100%); }
 .media-placeholder svg {
-  width: 40px;
-  height: 40px;
+  width: 54px;
+  height: 54px;
   opacity: 0.72;
 }
-.card.is-portrait .media-placeholder svg { width: 54px; height: 54px; }
 .media-placeholder span {
   font-family: var(--font-sans);
   font-size: 11px;
@@ -451,7 +444,7 @@ button { font: inherit; cursor: pointer; }
   width: 56px;
   height: 1px;
   background: var(--hairline);
-  margin: 0 auto 22px;
+  margin: auto auto 22px;
   opacity: 0.7;
 }
 
@@ -1046,7 +1039,7 @@ button { font: inherit; cursor: pointer; }
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 900px) {
   .cards { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
-  .card.is-portrait .media { width: 180px; height: 180px; }
+  .card .media { width: 180px; height: 180px; }
 }
 
 @media (max-width: 780px) {
