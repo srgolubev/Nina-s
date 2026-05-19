@@ -19,7 +19,7 @@
   "formatTitle": "Session Format",
   "format": [
     "50-minute private online sessions",
-    "Audio-only or Zoom sessions available",
+    "Zoom sessions available",
     "English and Russian language support"
   ],
   "investmentTitle": "Investment",
@@ -28,5 +28,5 @@
   "noticeTitle": "Important Notice",
   "notice": "Coaching is not psychotherapy, counseling, or mental health treatment. TranquilHaven Coaching does not diagnose or treat mental health conditions.",
   "ctaLabel": "Book a Session",
-  "ctaHref": "/contact"
+  "ctaHref": "https://calendar.app.google/7cT1RC2g7GbCfiTY7"
 }

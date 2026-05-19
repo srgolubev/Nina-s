@@ -940,12 +940,6 @@ button { font: inherit; cursor: pointer; }
 .faq-answer li { font-size: 16px; }
 
 /* ---------- CONTACT ---------- */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(20px, 2.6vw, 30px);
-  align-items: start;
-}
 .contact-block p { font-size: 15.5px; line-height: 1.65; color: var(--ink-soft); }
 .contact-block .panel-title + p { margin-top: 0; }
 .embed-placeholder {
@@ -1036,7 +1030,6 @@ button { font: inherit; cursor: pointer; }
   .insight-grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
   .quote-grid { grid-template-columns: 1fr; }
   .panel-grid { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
 }
 
 /* ---------- Reveal animations ---------- */

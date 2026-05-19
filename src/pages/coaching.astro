@@ -23,6 +23,8 @@ const {
   ctaLabel,
   ctaHref,
 } = page;
+
+const ctaExternal = /^https?:\/\//i.test(ctaHref);
 ---
 
 <Base title={seo.title} description={seo.description}>
@@ -63,7 +65,12 @@ const {
       {
         ctaLabel && (
           <div class="page-cta reveal">
-            <a class="btn btn-primary" href={withBase(ctaHref)}>
+            <a
+              class="btn btn-primary"
+              href={withBase(ctaHref)}
+              target={ctaExternal ? '_blank' : undefined}
+              rel={ctaExternal ? 'noopener noreferrer' : undefined}
+            >
               <span>{ctaLabel}</span>
               <span class="btn-caret" aria-hidden="true">›</span>
             </a>

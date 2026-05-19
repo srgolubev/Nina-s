@@ -322,9 +322,6 @@ export default defineConfig({
               seoField,
               ...titleFields,
               { type: 'string', name: 'lead', label: 'Lead line', ui: { component: 'textarea' } },
-              { type: 'string', name: 'bookingTitle', label: 'Booking heading' },
-              { type: 'string', name: 'bookingText', label: 'Booking text', ui: { component: 'textarea' } },
-              { type: 'string', name: 'calendlyUrl', label: 'Calendly link (leave empty to hide)' },
               { type: 'string', name: 'formTitle', label: 'Form heading' },
               { type: 'string', name: 'formText', label: 'Form text', ui: { component: 'textarea' } },
               {

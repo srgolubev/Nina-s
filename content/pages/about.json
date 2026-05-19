@@ -6,7 +6,7 @@
   },
   "title": "About",
   "tagline": "Less noise. More you.",
-  "lead": "Less noise. More you. That's TranquilHaven Coaching.",
+  "lead": "Less noise. More you.\nThat's TranquilHaven Coaching. 🌿⛵️",
   "body": [
     {
       "_template": "paragraph",
@@ -22,11 +22,11 @@
     },
     {
       "_template": "paragraph",
-      "text": "Sessions are available online and may be conducted audio-only for additional comfort and privacy."
+      "text": "Sessions are available online, so you can meet from a space that feels comfortable and private."
     }
   ],
-  "closing": "Your Tranquil Haven",
+  "closing": "Your Tranquil Haven 🌿⛵️",
   "note": "Please note: TranquilHaven Coaching provides coaching services only and does not provide psychotherapy, counseling, or mental health treatment.",
-  "ctaLabel": "Book a Free Discovery Call",
+  "ctaLabel": "Get in Touch",
   "ctaHref": "/contact"
 }

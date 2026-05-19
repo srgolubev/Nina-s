@@ -16,7 +16,11 @@ const { seo, title, tagline, lead, body, closing, note, ctaLabel, ctaHref } = pa
 
   <main class="page-main">
     <div class="container narrow">
-      <p class="lead reveal">{lead}</p>
+      <p class="lead reveal">
+        {lead.split('\n').map((line, i) => (
+          <Fragment>{i > 0 && <br />}{line}</Fragment>
+        ))}
+      </p>
 
       <div class="prose reveal">
         <Blocks blocks={body} />

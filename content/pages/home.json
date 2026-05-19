@@ -9,9 +9,9 @@
     "imageAlt": "Calm coastal sunset with sailboats moored near a small white lighthouse on a stone jetty, and a soft sandy beach in the foreground.",
     "welcome": "Welcome to",
     "brand": "Tranquil Haven Coaching",
-    "subtitle": "Find Your Inner Peace and Balance",
+    "subtitle": "A safe harbor from info-noise and hype",
     "ctaLabel": "Start Your Journey",
-    "ctaHref": "/contact"
+    "ctaHref": "#about"
   },
   "cards": [
     {
@@ -38,11 +38,11 @@
       "title": "Client Testimonials",
       "variant": "standard",
       "image": "",
-      "imageAlt": "What our clients are saying",
-      "body": "What Our Clients Are Saying",
+      "imageAlt": "What my clients are saying",
+      "body": "What My Clients Are Saying",
       "buttonLabel": "Read Reviews",
       "buttonHref": "/testimonials",
-      "buttonStyle": "secondary"
+      "buttonStyle": "primary"
     }
   ],
   "cta": {
