@@ -27,8 +27,8 @@
     {
       "title": "My Services",
       "variant": "standard",
-      "image": "",
-      "imageAlt": "Personal coaching for mindful living",
+      "image": "/images/my-services.jpg",
+      "imageAlt": "A stack of balanced beach pebbles at sunset, with a lighthouse across the water",
       "body": "Personal Coaching for Mindful Living",
       "buttonLabel": "Discover More",
       "buttonHref": "/coaching",
@@ -37,8 +37,8 @@
     {
       "title": "Client Testimonials",
       "variant": "standard",
-      "image": "",
-      "imageAlt": "What my clients are saying",
+      "image": "/images/client-testimonials.jpg",
+      "imageAlt": "An open journal and pen, a cup of coffee, and dried flowers on a table by a calm sunset bay",
       "body": "What My Clients Are Saying",
       "buttonLabel": "Read Reviews",
       "buttonHref": "/testimonials",
