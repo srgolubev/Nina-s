@@ -2,13 +2,33 @@
   "_template": "contact",
   "seo": {
     "title": "Contact — TranquilHaven Coaching",
-    "description": "Send a message to begin coaching with TranquilHaven Coaching — a private, psychologically-informed practice."
+    "description": "Reach out by email, Instagram, or in the Facebook community to begin coaching with TranquilHaven."
   },
   "title": "Contact",
   "tagline": "Begin your journey",
-  "lead": "Ready to begin? Send a message below, and you'll receive a thoughtful reply by email.",
+  "lead": "Send a quiet word — by email, on Instagram, or in the Facebook community. I'll reply with care, at an unhurried pace.",
+  "channels": [
+    {
+      "type": "email",
+      "label": "Email",
+      "value": "thavencoach@gmail.com",
+      "url": "mailto:thavencoach@gmail.com"
+    },
+    {
+      "type": "instagram",
+      "label": "Instagram",
+      "value": "@tranquilhavencoaching",
+      "url": "https://www.instagram.com/tranquilhavencoaching"
+    },
+    {
+      "type": "facebook",
+      "label": "Facebook community",
+      "value": "Join the group",
+      "url": "https://www.facebook.com/groups/1360286985030272"
+    }
+  ],
   "formTitle": "Send a Message",
   "formText": "Share a little about what brings you here, and we'll take it from there — at a calm, unhurried pace.",
   "formEndpoint": "",
-  "privacyNote": "Your name, email, and optional phone number are used only to schedule sessions and reply to you. This information is kept confidential and is never shared with third parties."
+  "privacyNote": "Your name and email are used only to reply to you. Nothing is shared with third parties."
 }

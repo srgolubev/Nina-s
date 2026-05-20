@@ -19,10 +19,8 @@
     { "label": "Contact", "href": "/contact" }
   ],
   "socials": [
-    { "platform": "facebook", "url": "#" },
-    { "platform": "instagram", "url": "#" },
-    { "platform": "linkedin", "url": "#" },
-    { "platform": "twitter", "url": "#" }
+    { "platform": "instagram", "url": "https://www.instagram.com/tranquilhavencoaching" },
+    { "platform": "facebook", "url": "https://www.facebook.com/groups/1360286985030272" }
   ],
   "footerLinks": [
     { "label": "Privacy Policy", "href": "/privacy" },

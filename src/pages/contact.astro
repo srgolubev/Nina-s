@@ -10,11 +10,27 @@ const {
   title,
   tagline,
   lead,
+  channels,
   formTitle,
   formText,
   formEndpoint,
   privacyNote,
 } = page;
+
+const CHANNEL_ICONS: Record<string, string> = {
+  email:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.4"/><path d="m4 7 7.4 5.4a1 1 0 0 0 1.2 0L20 7"/></svg>',
+  instagram:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>',
+  facebook:
+    '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3H13.5V8.6c0-.87.27-1.46 1.51-1.46h1.61V4.46C16.3 4.42 15.34 4.34 14.22 4.34c-2.33 0-3.93 1.42-3.93 4.03V10.5H7.8v3h2.49V21h3.21z"/></svg>',
+  messenger:
+    '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.14 2 11.25c0 2.74 1.32 5.18 3.4 6.83V22l3.1-1.7c.83.23 1.7.35 2.5.35 5.52 0 10-4.14 10-9.4S17.52 2 12 2zm.96 12.65l-2.6-2.77-5.07 2.77 5.58-5.92 2.66 2.77 5-2.77-5.57 5.92z"/></svg>',
+  link:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 1 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 1 0 5.66 5.66l1-1"/></svg>',
+};
+
+const isExternal = (url: string) => /^https?:/i.test(url);
 ---
 
 <Base title={seo.title} description={seo.description}>
@@ -25,47 +41,60 @@ const {
     <div class="container narrow">
       <p class="lead lead--center reveal">{lead}</p>
 
-      <section class="panel contact-block reveal" aria-labelledby="form-h">
-        <h2 id="form-h" class="panel-title">{formTitle}</h2>
-        {formText && <p>{formText}</p>}
+      {
+        channels && channels.length > 0 && (
+          <ul class="contact-channels reveal" aria-label="Contact channels">
+            {channels.map((c) => (
+              <li>
+                <a
+                  class="contact-channel"
+                  href={c.url}
+                  target={isExternal(c.url) ? '_blank' : undefined}
+                  rel={isExternal(c.url) ? 'noopener noreferrer' : undefined}
+                >
+                  <span
+                    class="contact-channel-icon"
+                    set:html={CHANNEL_ICONS[c.type] || CHANNEL_ICONS.link}
+                  />
+                  <span class="contact-channel-label">{c.label}</span>
+                  <span class="contact-channel-value">{c.value}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
 
-        <form
-          class="contact-form"
-          method="POST"
-          action={formEndpoint || undefined}
-        >
-          <p class="field">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" autocomplete="name" required />
-          </p>
-          <p class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" autocomplete="email" required />
-          </p>
-          <p class="field">
-            <label for="phone">Phone <span class="optional">(optional)</span></label>
-            <input type="tel" id="phone" name="phone" autocomplete="tel" />
-          </p>
-          <p class="field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </p>
-          <p class="field field--honeypot" aria-hidden="true">
-            <label for="company">Leave this field empty</label>
-            <input type="text" id="company" name="_gotcha" tabindex="-1" autocomplete="off" />
-          </p>
-          <button type="submit" class="btn btn-primary" disabled={!formEndpoint}>
-            <span>Send Message</span>
-          </button>
-          {
-            !formEndpoint && (
-              <p class="embed-placeholder">
-                The message form will be active once the form endpoint is configured.
+      {
+        formEndpoint && (
+          <section class="panel contact-block reveal" aria-labelledby="form-h">
+            <h2 id="form-h" class="panel-title">{formTitle}</h2>
+            {formText && <p>{formText}</p>}
+
+            <form class="contact-form" method="POST" action={formEndpoint}>
+              <p class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" autocomplete="name" required />
               </p>
-            )
-          }
-        </form>
-      </section>
+              <p class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email" required />
+              </p>
+              <p class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </p>
+              <p class="field field--honeypot" aria-hidden="true">
+                <label for="company">Leave this field empty</label>
+                <input type="text" id="company" name="_gotcha" tabindex="-1" autocomplete="off" />
+              </p>
+              <button type="submit" class="btn btn-primary">
+                <span>Send Message</span>
+              </button>
+            </form>
+          </section>
+        )
+      }
 
       {privacyNote && <p class="note reveal">{privacyNote}</p>}
     </div>

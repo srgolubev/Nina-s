@@ -795,6 +795,81 @@ button { font: inherit; cursor: pointer; }
   padding: clamp(24px, 4vw, 40px);
   margin: 0 0 26px;
 }
+
+/* ---------- CONTACT CHANNELS ---------- */
+.contact-channels {
+  list-style: none;
+  margin: 36px 0 30px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.contact-channels li { margin: 0; }
+.contact-channel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 26px 18px 24px;
+  background: rgba(255, 252, 246, 0.6);
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  color: var(--teal-ink);
+  text-decoration: none;
+  height: 100%;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+.contact-channel:hover {
+  background: rgba(255, 252, 246, 0.9);
+  border-color: rgba(67, 99, 112, 0.28);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -16px rgba(48, 64, 78, 0.2);
+}
+.contact-channel-icon {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(67, 99, 112, 0.08);
+  color: var(--teal);
+}
+.contact-channel-icon svg {
+  width: 21px;
+  height: 21px;
+}
+.contact-channel-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal);
+  opacity: 0.82;
+}
+.contact-channel-value {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(15px, 1.3vw, 17px);
+  line-height: 1.4;
+  color: var(--teal-ink);
+  word-break: break-word;
+}
+@media (max-width: 720px) {
+  .contact-channels {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 28px 0 24px;
+  }
+  .contact-channel { padding: 22px 18px; }
+}
 .panel:last-child { margin-bottom: 0; }
 .panel-title {
   margin: 0 0 18px;
@@ -1023,7 +1098,7 @@ button { font: inherit; cursor: pointer; }
   color: var(--teal-ink);
   margin: 0 0 1.15em;
 }
-.reading-article > p:first-of-type::first-letter {
+.reading-article .reading-rule + p::first-letter {
   float: left;
   font-family: var(--font-serif);
   font-style: italic;

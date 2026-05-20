@@ -334,12 +334,32 @@ export default defineConfig({
               seoField,
               ...titleFields,
               { type: 'string', name: 'lead', label: 'Lead line', ui: { component: 'textarea' } },
+              {
+                type: 'object',
+                name: 'channels',
+                label: 'Contact channels (Email, Instagram, …)',
+                list: true,
+                ui: {
+                  itemProps: (item) => ({ label: item?.label || 'Channel' }),
+                },
+                fields: [
+                  {
+                    type: 'string',
+                    name: 'type',
+                    label: 'Type (chooses the icon)',
+                    options: ['email', 'instagram', 'facebook', 'messenger', 'link'],
+                  },
+                  { type: 'string', name: 'label', label: 'Display label' },
+                  { type: 'string', name: 'value', label: 'Shown value (handle, address, etc.)' },
+                  { type: 'string', name: 'url', label: 'Link URL (mailto: or https://)' },
+                ],
+              },
               { type: 'string', name: 'formTitle', label: 'Form heading' },
               { type: 'string', name: 'formText', label: 'Form text', ui: { component: 'textarea' } },
               {
                 type: 'string',
                 name: 'formEndpoint',
-                label: 'Form endpoint URL (Formspree — leave empty to disable)',
+                label: 'Form endpoint URL (Formspree — leave empty to hide the form)',
               },
               {
                 type: 'string',

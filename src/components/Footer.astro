@@ -20,7 +20,9 @@ const LABELS: Record<string, string> = {
   twitter: 'Twitter',
 };
 
-const socials = site.socials.filter((s) => ICONS[s.platform]);
+const socials = site.socials.filter(
+  (s) => ICONS[s.platform] && s.url && s.url !== '#',
+);
 const footerLinks = site.footerLinks ?? [];
 const isExternal = (href: string) => /^[a-z]+:/i.test(href) || href.startsWith('//');
 ---
@@ -30,7 +32,13 @@ const isExternal = (href: string) => /^[a-z]+:/i.test(href) || href.startsWith('
     <nav class="socials" aria-label="Social media">
       {
         socials.map((s) => (
-          <a href={s.url} aria-label={LABELS[s.platform]} set:html={ICONS[s.platform]} />
+          <a
+            href={s.url}
+            aria-label={LABELS[s.platform]}
+            target="_blank"
+            rel="noopener noreferrer"
+            set:html={ICONS[s.platform]}
+          />
         ))
       }
     </nav>
