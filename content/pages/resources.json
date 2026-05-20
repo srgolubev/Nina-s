@@ -9,7 +9,9 @@
   "intro": "Reflective prompts and gentle check-ins you can return to anytime — small practices that make space for clarity, without pressure.",
   "items": [
     {
+      "slug": "five-questions-for-emotional-clarity",
       "title": "5 Questions for Emotional Clarity",
+      "excerpt": "Five gentle questions to sit with when things feel emotionally unclear — clarity often comes through noticing, not forcing.",
       "body": [
         {
           "_template": "paragraph",
@@ -32,7 +34,9 @@
       ]
     },
     {
+      "slug": "a-gentle-boundary-check-in",
       "title": "A Gentle Boundary Check-In",
+      "excerpt": "Boundaries are not about distance — they are about clarity. A short reflection to notice where you may feel emotionally overextended.",
       "body": [
         {
           "_template": "paragraph",
@@ -58,7 +62,9 @@
       ]
     },
     {
+      "slug": "when-you-feel-stuck-in-a-life-transition",
       "title": "When You Feel Stuck in a Life Transition",
+      "excerpt": "When old patterns no longer fit and new ones are not yet clear, a few questions can help you slow down and notice what is actually changing.",
       "body": [
         {
           "_template": "paragraph",

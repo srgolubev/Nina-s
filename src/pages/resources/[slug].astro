@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import Blocks from '../../components/Blocks.astro';
+import { withBase } from '../../lib/url';
+import page from '../../../content/pages/resources.json';
+
+export function getStaticPaths() {
+  const { items } = page;
+  return items.map((item) => ({
+    params: { slug: item.slug },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const { seo } = page;
+---
+
+<Base
+  title={`${item.title} — TranquilHaven Coaching`}
+  description={item.excerpt || seo.description}
+>
+  <Header />
+  <PageHero title={item.title} tagline="Resources" />
+
+  <main class="page-main">
+    <div class="container narrow">
+      <article class="prose article reveal">
+        <Blocks blocks={item.body} />
+      </article>
+
+      <p class="back-link reveal">
+        <a href={withBase('/resources')}>
+          <span class="btn-caret btn-caret--back" aria-hidden="true">‹</span>
+          <span>All resources</span>
+        </a>
+      </p>
+    </div>
+  </main>
+
+  <Footer />
+</Base>

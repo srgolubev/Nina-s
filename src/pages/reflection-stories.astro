@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import page from '../../content/pages/reflection-stories.json';
+
+const { seo, title, tagline, intro } = page;
+---
+
+<Base title={seo.title} description={seo.description}>
+  <Header />
+  <PageHero title={title} tagline={tagline} />
+
+  <main class="page-main">
+    <div class="container narrow">
+      <p class="lead lead--center reveal">{intro}</p>
+
+      <div class="coming-soon reveal" aria-label="Reflection Stories — coming soon">
+        <span class="coming-soon-mark" aria-hidden="true">~</span>
+        <p>The first stories are still being shaped, with care for privacy and quiet.</p>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Base>

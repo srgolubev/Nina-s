@@ -13,6 +13,13 @@ const { light = false } = Astro.props;
 const strip = (p: string) => (p !== '/' && p.endsWith('/') ? p.slice(0, -1) : p);
 const current = strip(Astro.url.pathname);
 const isActive = (href: string) => strip(withBase(href)) === current;
+
+type NavLeaf = { label: string; href: string };
+type NavGroup = { label: string; children: NavLeaf[] };
+type NavItem = NavLeaf | NavGroup;
+const isGroup = (item: NavItem): item is NavGroup =>
+  Array.isArray((item as NavGroup).children) && (item as NavGroup).children.length > 0;
+const groupActive = (group: NavGroup) => group.children.some((c) => isActive(c.href));
 ---
 
 <header class:list={['site-header', light && 'is-on-light']}>
@@ -36,13 +43,41 @@ const isActive = (href: string) => strip(withBase(href)) === current;
   <nav aria-label="Primary">
     <ul class="nav-list">
       {
-        site.nav.map((item) => (
-          <li>
-            <a href={withBase(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>
-              {item.label}
-            </a>
-          </li>
-        ))
+        (site.nav as NavItem[]).map((item, i) =>
+          isGroup(item) ? (
+            <li class:list={['has-children', groupActive(item) && 'is-active']}>
+              <button
+                type="button"
+                class="nav-toggle"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls={`submenu-${i}`}
+              >
+                <span>{item.label}</span>
+                <span class="chev" aria-hidden="true">▾</span>
+              </button>
+              <ul class="submenu" id={`submenu-${i}`} role="menu">
+                {item.children.map((child) => (
+                  <li role="none">
+                    <a
+                      role="menuitem"
+                      href={withBase(child.href)}
+                      aria-current={isActive(child.href) ? 'page' : undefined}
+                    >
+                      {child.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ) : (
+            <li>
+              <a href={withBase(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          )
+        )
       }
     </ul>
     <button
@@ -70,11 +105,36 @@ const isActive = (href: string) => strip(withBase(href)) === current;
     </svg>
   </button>
   {
-    site.nav.map((item) => (
-      <a href={withBase(item.href)} data-close aria-current={isActive(item.href) ? 'page' : undefined}>
-        {item.label}
-      </a>
-    ))
+    (site.nav as NavItem[]).map((item, i) =>
+      isGroup(item) ? (
+        <div class:list={['mobile-nav-group', groupActive(item) && 'is-active']}>
+          <button
+            type="button"
+            class="mobile-nav-toggle"
+            aria-expanded="false"
+            aria-controls={`m-submenu-${i}`}
+          >
+            <span>{item.label}</span>
+            <span class="chev" aria-hidden="true">▾</span>
+          </button>
+          <div class="mobile-submenu" id={`m-submenu-${i}`}>
+            {item.children.map((child) => (
+              <a
+                href={withBase(child.href)}
+                data-close
+                aria-current={isActive(child.href) ? 'page' : undefined}
+              >
+                {child.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <a href={withBase(item.href)} data-close aria-current={isActive(item.href) ? 'page' : undefined}>
+          {item.label}
+        </a>
+      )
+    )
   }
 </div>
 
@@ -103,4 +163,48 @@ const isActive = (href: string) => strip(withBase(href)) === current;
       if (e.key === 'Escape') close();
     });
   }
+
+  // Desktop dropdown (Inner Compass): tap/keyboard toggle. Hover-open is
+  // handled via CSS, so this layer only adds support for touch and a11y.
+  const closeAllDropdowns = (except?: Element) => {
+    document.querySelectorAll('.has-children.is-open').forEach((li) => {
+      if (li === except) return;
+      li.classList.remove('is-open');
+      li.querySelector('.nav-toggle')?.setAttribute('aria-expanded', 'false');
+    });
+  };
+  document.querySelectorAll<HTMLButtonElement>('.has-children > .nav-toggle').forEach((btn) => {
+    const parent = btn.parentElement as HTMLElement;
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const wasOpen = parent.classList.contains('is-open');
+      closeAllDropdowns(parent);
+      parent.classList.toggle('is-open', !wasOpen);
+      btn.setAttribute('aria-expanded', !wasOpen ? 'true' : 'false');
+    });
+  });
+  document.addEventListener('click', (e) => {
+    const t = e.target as Node;
+    if (!document.querySelector('.has-children.is-open')) return;
+    document.querySelectorAll('.has-children.is-open').forEach((li) => {
+      if (!li.contains(t)) {
+        li.classList.remove('is-open');
+        li.querySelector('.nav-toggle')?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAllDropdowns();
+  });
+
+  // Mobile nav: expand/collapse the Inner Compass group inside the slide-in
+  // panel. Tapping a child link still triggers [data-close], which closes
+  // the whole panel.
+  document.querySelectorAll<HTMLButtonElement>('.mobile-nav-group > .mobile-nav-toggle').forEach((btn) => {
+    const group = btn.parentElement as HTMLElement;
+    btn.addEventListener('click', () => {
+      const open = group.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
 </script>

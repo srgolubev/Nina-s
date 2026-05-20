@@ -17,6 +17,7 @@ const ROUTES: Record<string, string> = {
   credentials: '/credentials',
   insights: '/insights',
   resources: '/resources',
+  'reflection-stories': '/reflection-stories',
   testimonials: '/testimonials',
   faq: '/faq',
   contact: '/contact',
@@ -266,10 +267,21 @@ export default defineConfig({
                 list: true,
                 ui: { itemProps: (item) => ({ label: item?.title || 'Resource' }) },
                 fields: [
+                  { type: 'string', name: 'slug', label: 'URL slug' },
                   { type: 'string', name: 'title', label: 'Title' },
+                  { type: 'string', name: 'excerpt', label: 'Excerpt', ui: { component: 'textarea' } },
                   bodyField('body', 'Resource content'),
                 ],
               },
+            ],
+          },
+          {
+            name: 'reflection-stories',
+            label: 'Reflection Stories',
+            fields: [
+              seoField,
+              ...titleFields,
+              { type: 'string', name: 'intro', label: 'Intro', ui: { component: 'textarea' } },
             ],
           },
           {
@@ -380,7 +392,24 @@ export default defineConfig({
             },
             fields: [
               { type: 'string', name: 'label', label: 'Label' },
-              { type: 'string', name: 'href', label: 'Link' },
+              {
+                type: 'string',
+                name: 'href',
+                label: 'Link (leave empty if this is a dropdown group)',
+              },
+              {
+                type: 'object',
+                name: 'children',
+                label: 'Dropdown items (optional)',
+                list: true,
+                ui: {
+                  itemProps: (item) => ({ label: item?.label || 'Submenu item' }),
+                },
+                fields: [
+                  { type: 'string', name: 'label', label: 'Label' },
+                  { type: 'string', name: 'href', label: 'Link' },
+                ],
+              },
             ],
           },
           {
