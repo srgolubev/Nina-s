@@ -24,19 +24,28 @@ const groupActive = (group: NavGroup) => group.children.some((c) => isActive(c.h
 
 <header class:list={['site-header', light && 'is-on-light']}>
   <a class="logo" href={withBase('/')} aria-label={`${site.logoName} ${site.logoCaption} home`}>
-    <svg class="logo-sun" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <circle cx="16" cy="20" r="4" fill="currentColor" opacity="0.95"></circle>
-      <g stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.9">
-        <line x1="16" y1="10" x2="16" y2="6"></line>
-        <line x1="10" y1="14" x2="7" y2="11"></line>
-        <line x1="22" y1="14" x2="25" y2="11"></line>
-        <line x1="8" y1="20" x2="4" y2="20"></line>
-        <line x1="24" y1="20" x2="28" y2="20"></line>
-      </g>
+    <svg
+      class="logo-burst"
+      viewBox="0 0 80 22"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      aria-hidden="true"
+    >
+      <path d="M40 21 L40 3"></path>
+      <path d="M40 21 L29 5"></path>
+      <path d="M40 21 L51 5"></path>
+      <path d="M40 21 L20 9"></path>
+      <path d="M40 21 L60 9"></path>
+      <path d="M40 21 L14 14"></path>
+      <path d="M40 21 L66 14"></path>
     </svg>
-    <span class="logo-text">
-      <span class="logo-name">{site.logoName}</span>
-      <span class="logo-caption">{site.logoCaption}</span>
+    <span class="logo-name">{site.logoName}</span>
+    <span class="logo-caption">
+      <span class="logo-hairline" aria-hidden="true"></span>
+      <span class="logo-caption-text">{site.logoCaption}</span>
+      <span class="logo-hairline" aria-hidden="true"></span>
     </span>
   </a>
 
