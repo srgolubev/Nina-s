@@ -1,0 +1,168 @@
+---
+import Blocks from './Blocks.astro';
+
+interface Article {
+  slug: string;
+  title: string;
+  body: any[];
+}
+
+interface Props {
+  sectionLabel: string;
+  articles: Article[];
+}
+
+const { sectionLabel, articles } = Astro.props;
+---
+
+{
+  articles.map((article) => (
+    <template data-article={article.slug}>
+      <p class="reading-eyebrow">{sectionLabel}</p>
+      <h1>{article.title}</h1>
+      <div class="reading-rule" aria-hidden="true"></div>
+      <Blocks blocks={article.body} />
+      <div class="reading-rule reading-rule--bottom" aria-hidden="true"></div>
+    </template>
+  ))
+}
+
+<div
+  class="reader-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-label={`${sectionLabel} reader`}
+  aria-hidden="true"
+>
+  <div class="reading-canvas">
+    <article class="reading-article" data-reader-content tabindex="-1"></article>
+    <div class="reading-close-wrap">
+      <button class="reading-close" type="button" data-reader-close>
+        <span class="reading-close-mark" aria-hidden="true">✕</span>
+        <span>Close reflection</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const overlay = document.querySelector<HTMLElement>('.reader-overlay');
+    if (!overlay) return;
+    const content = overlay.querySelector<HTMLElement>('[data-reader-content]');
+    const closeBtn = overlay.querySelector<HTMLButtonElement>('[data-reader-close]');
+    if (!content || !closeBtn) return;
+
+    let lastFocused: HTMLElement | null = null;
+    let isOpen = false;
+    let suppressNextPopstate = false;
+
+    const findTemplate = (slug: string): HTMLTemplateElement | null => {
+      try {
+        const sel = `template[data-article="${window.CSS?.escape ? CSS.escape(slug) : slug}"]`;
+        return document.querySelector<HTMLTemplateElement>(sel);
+      } catch {
+        return null;
+      }
+    };
+
+    const open = (slug: string, fromElement: HTMLElement | null) => {
+      const tpl = findTemplate(slug);
+      if (!tpl) return false;
+      lastFocused = fromElement || (document.activeElement as HTMLElement);
+
+      content.innerHTML = '';
+      content.appendChild(tpl.content.cloneNode(true));
+      overlay.scrollTop = 0;
+
+      document.body.classList.add('is-reading');
+      overlay.setAttribute('aria-hidden', 'false');
+      requestAnimationFrame(() => overlay.classList.add('is-open'));
+      isOpen = true;
+
+      const target = '#' + encodeURIComponent(slug);
+      if (location.hash !== target) {
+        history.pushState({ readerSlug: slug }, '', target);
+      }
+
+      window.setTimeout(() => content.focus({ preventScroll: true }), 950);
+      return true;
+    };
+
+    const close = (updateHistory = true) => {
+      if (!isOpen) return;
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
+
+      let done = false;
+      const finish = () => {
+        if (done) return;
+        done = true;
+        overlay.removeEventListener('transitionend', onEnd);
+        document.body.classList.remove('is-reading');
+        content.innerHTML = '';
+        isOpen = false;
+        if (lastFocused?.focus) lastFocused.focus({ preventScroll: true });
+      };
+      const onEnd = (e: TransitionEvent) => {
+        if (e.target !== overlay || e.propertyName !== 'opacity') return;
+        finish();
+      };
+      overlay.addEventListener('transitionend', onEnd);
+      window.setTimeout(finish, 1200);
+
+      if (updateHistory) {
+        if (history.state && (history.state as any).readerSlug) {
+          suppressNextPopstate = true;
+          history.back();
+        } else if (location.hash) {
+          history.replaceState(null, '', location.pathname + location.search);
+        }
+      }
+    };
+
+    const tryOpenFromHash = () => {
+      const raw = location.hash.slice(1);
+      if (!raw) return;
+      let slug = raw;
+      try {
+        slug = decodeURIComponent(raw);
+      } catch {}
+      open(slug, null);
+    };
+
+    document.querySelectorAll<HTMLAnchorElement>('a.reader-link').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        const slug =
+          link.getAttribute('data-slug') || (link.getAttribute('href') || '').replace(/^#/, '');
+        if (!slug) return;
+        e.preventDefault();
+        open(slug, link);
+      });
+    });
+
+    closeBtn.addEventListener('click', () => close(true));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) close(true);
+    });
+    overlay.addEventListener('click', (e) => {
+      const t = e.target as HTMLElement;
+      if (t === overlay || t.classList.contains('reading-canvas')) close(true);
+    });
+
+    window.addEventListener('popstate', () => {
+      if (suppressNextPopstate) {
+        suppressNextPopstate = false;
+        return;
+      }
+      if (isOpen && !location.hash) {
+        close(false);
+      } else if (!isOpen && location.hash) {
+        tryOpenFromHash();
+      }
+    });
+
+    if (location.hash) tryOpenFromHash();
+  })();
+</script>

@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
-import { withBase } from '../lib/url';
+import Reader from '../components/Reader.astro';
 import page from '../../content/pages/resources.json';
 
 const { seo, title, tagline, intro, items } = page;
@@ -22,10 +22,12 @@ const { seo, title, tagline, intro, items } = page;
           items.map((item) => (
             <article class="insight-card reveal">
               <h2>
-                <a href={withBase(`/resources/${item.slug}`)}>{item.title}</a>
+                <a class="reader-link" href={`#${item.slug}`} data-slug={item.slug}>
+                  {item.title}
+                </a>
               </h2>
               {item.excerpt && <p class="insight-excerpt">{item.excerpt}</p>}
-              <a class="text-link" href={withBase(`/resources/${item.slug}`)}>
+              <a class="text-link reader-link" href={`#${item.slug}`} data-slug={item.slug}>
                 <span>Open practice</span>
                 <span class="btn-caret" aria-hidden="true">›</span>
               </a>
@@ -37,4 +39,6 @@ const { seo, title, tagline, intro, items } = page;
   </main>
 
   <Footer />
+
+  <Reader sectionLabel="Resources" articles={items} />
 </Base>

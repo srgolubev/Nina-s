@@ -961,6 +961,219 @@ button { font: inherit; cursor: pointer; }
   line-height: 1.55;
 }
 
+/* ---------- READING MODE ---------- */
+/* Used for the in-page "reader" that opens when a title in Insights or
+   Resources is clicked. The same .reading-* visual styles can also be
+   used on a standalone page if needed. */
+
+.reading-canvas {
+  background-color: #ECDEC8;
+  background-image:
+    radial-gradient(120% 80% at 50% 0%, rgba(255, 252, 246, 0.42) 0%, rgba(255, 252, 246, 0) 55%),
+    linear-gradient(180deg, #ECDEC8 0%, #E3D2B7 100%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.18  0 0 0 0 0.20  0 0 0 0 0.18  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-blend-mode: normal, normal, multiply;
+  padding: clamp(80px, 14vh, 150px) 24px clamp(60px, 10vh, 120px);
+  min-height: 100vh;
+}
+.reading-article {
+  max-width: 640px;
+  margin: 0 auto;
+  outline: none;
+}
+.reading-eyebrow {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--teal);
+  opacity: 0.78;
+  margin: 0 0 22px;
+}
+.reading-article h1 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 38px);
+  line-height: 1.2;
+  text-align: center;
+  color: var(--teal-ink);
+  margin: 0 0 24px;
+  text-wrap: balance;
+}
+.reading-rule {
+  width: 72px;
+  height: 1px;
+  background: var(--teal);
+  opacity: 0.35;
+  margin: 0 auto 44px;
+}
+.reading-rule--bottom {
+  margin: 56px auto 30px;
+  opacity: 0.28;
+}
+.reading-article p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(17px, 1.45vw, 19px);
+  line-height: 1.75;
+  color: var(--teal-ink);
+  margin: 0 0 1.15em;
+}
+.reading-article > p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 3.6em;
+  line-height: 0.86;
+  color: var(--teal);
+  margin: 0.06em 0.14em 0 0;
+  padding-right: 4px;
+}
+.reading-article ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.4em 0 1.4em;
+}
+.reading-article li {
+  position: relative;
+  padding-left: 26px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.7;
+  color: var(--teal-ink);
+  margin: 0 0 0.55em;
+}
+.reading-article li::before {
+  content: "·";
+  position: absolute;
+  left: 8px;
+  top: -0.18em;
+  font-size: 1.7em;
+  color: var(--teal);
+  opacity: 0.7;
+}
+
+.reading-close-wrap {
+  text-align: center;
+  margin-top: 20px;
+}
+.reading-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: transparent;
+  border: 1px solid rgba(67, 99, 112, 0.26);
+  padding: 12px 22px 12px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  opacity: 0.78;
+  transition: opacity 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  text-decoration: none;
+}
+.reading-close:hover {
+  opacity: 1;
+  background: rgba(67, 99, 112, 0.06);
+  border-color: rgba(67, 99, 112, 0.42);
+}
+.reading-close-mark {
+  font-size: 14px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+/* In-page reader overlay (opened from Insights / Resources cards) */
+.reader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), visibility 0s linear 0.7s;
+}
+.reader-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), visibility 0s;
+}
+
+body.is-reading { overflow: hidden; }
+body.is-reading .site-header,
+body.is-reading .page-hero,
+body.is-reading .page-main,
+body.is-reading .site-footer {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.1s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Staggered reveal of article content once the reader has opened */
+.reader-overlay .reading-article > * {
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.reader-overlay.is-open .reading-article > * {
+  opacity: 1;
+  transform: none;
+}
+.reader-overlay.is-open .reading-article > *:nth-child(1)  { transition-delay: 0.85s; }
+.reader-overlay.is-open .reading-article > *:nth-child(2)  { transition-delay: 0.93s; }
+.reader-overlay.is-open .reading-article > *:nth-child(3)  { transition-delay: 1.01s; }
+.reader-overlay.is-open .reading-article > *:nth-child(4)  { transition-delay: 1.09s; }
+.reader-overlay.is-open .reading-article > *:nth-child(5)  { transition-delay: 1.17s; }
+.reader-overlay.is-open .reading-article > *:nth-child(6)  { transition-delay: 1.25s; }
+.reader-overlay.is-open .reading-article > *:nth-child(7)  { transition-delay: 1.33s; }
+.reader-overlay.is-open .reading-article > *:nth-child(8)  { transition-delay: 1.41s; }
+.reader-overlay.is-open .reading-article > *:nth-child(9)  { transition-delay: 1.49s; }
+.reader-overlay.is-open .reading-article > *:nth-child(10) { transition-delay: 1.57s; }
+
+.reader-overlay .reading-close-wrap {
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.reader-overlay.is-open .reading-close-wrap {
+  opacity: 1;
+  transition-delay: 1.6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.is-reading .site-header,
+  body.is-reading .page-hero,
+  body.is-reading .page-main,
+  body.is-reading .site-footer {
+    transition: opacity 0.25s ease;
+  }
+  .reader-overlay {
+    transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+  }
+  .reader-overlay.is-open {
+    transition: opacity 0.25s ease, visibility 0s;
+  }
+  .reader-overlay .reading-article > *,
+  .reader-overlay .reading-close-wrap {
+    transform: none;
+    transition: opacity 0.25s ease;
+    transition-delay: 0s !important;
+  }
+}
+
 /* ---------- RESOURCES ---------- */
 .resource-list {
   display: flex;
