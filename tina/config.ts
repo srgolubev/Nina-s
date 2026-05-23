@@ -282,6 +282,19 @@ export default defineConfig({
               seoField,
               ...titleFields,
               { type: 'string', name: 'intro', label: 'Intro', ui: { component: 'textarea' } },
+              {
+                type: 'object',
+                name: 'articles',
+                label: 'Stories',
+                list: true,
+                ui: { itemProps: (item) => ({ label: item?.title || 'Story' }) },
+                fields: [
+                  { type: 'string', name: 'slug', label: 'URL slug' },
+                  { type: 'string', name: 'title', label: 'Title' },
+                  { type: 'string', name: 'excerpt', label: 'Excerpt', ui: { component: 'textarea' } },
+                  bodyField('body', 'Story content'),
+                ],
+              },
             ],
           },
           {

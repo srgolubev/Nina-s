@@ -43,6 +43,16 @@ const isExternal = (url: string) => /^[a-z]+:/i.test(url) || url.startsWith('//'
         </p>
       );
     }
-    return <p>{block.text}</p>;
+    const lines = (block.text ?? '').split('\n');
+    return (
+      <p>
+        {lines.map((line, i) => (
+          <Fragment>
+            {i > 0 && <br />}
+            {line}
+          </Fragment>
+        ))}
+      </p>
+    );
   })
 }

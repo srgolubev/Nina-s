@@ -17,8 +17,8 @@
     {
       "title": "About Me",
       "variant": "portrait",
-      "image": "",
-      "imageAlt": "Coach portrait",
+      "image": "/images/coach.jpg",
+      "imageAlt": "TranquilHaven Coaching — coach portrait",
       "body": "Guiding you to a place of calm and clarity",
       "buttonLabel": "Learn More",
       "buttonHref": "/about",

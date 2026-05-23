@@ -3,9 +3,10 @@ import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
+import Reader from '../components/Reader.astro';
 import page from '../../content/pages/reflection-stories.json';
 
-const { seo, title, tagline, intro } = page;
+const { seo, title, tagline, intro, articles } = page;
 ---
 
 <Base title={seo.title} description={seo.description}>
@@ -13,15 +14,31 @@ const { seo, title, tagline, intro } = page;
   <PageHero title={title} tagline={tagline} />
 
   <main class="page-main">
-    <div class="container narrow">
-      <p class="lead lead--center reveal">{intro}</p>
+    <div class="container">
+      {intro && <p class="lead lead--center reveal">{intro}</p>}
 
-      <div class="coming-soon reveal" aria-label="Reflection Stories — coming soon">
-        <span class="coming-soon-mark" aria-hidden="true">~</span>
-        <p>The first stories are still being shaped, with care for privacy and quiet.</p>
+      <div class="insight-grid">
+        {
+          articles.map((article) => (
+            <article class="insight-card reveal">
+              <h2>
+                <a class="reader-link" href={`#${article.slug}`} data-slug={article.slug}>
+                  {article.title}
+                </a>
+              </h2>
+              <p class="insight-excerpt">{article.excerpt}</p>
+              <a class="text-link reader-link" href={`#${article.slug}`} data-slug={article.slug}>
+                <span>Read the story</span>
+                <span class="btn-caret" aria-hidden="true">›</span>
+              </a>
+            </article>
+          ))
+        }
       </div>
     </div>
   </main>
 
   <Footer />
+
+  <Reader sectionLabel="Reflection Stories" articles={articles} />
 </Base>
