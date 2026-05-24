@@ -238,19 +238,6 @@ export default defineConfig({
               seoField,
               ...titleFields,
               { type: 'string', name: 'intro', label: 'Intro', ui: { component: 'textarea' } },
-              {
-                type: 'object',
-                name: 'articles',
-                label: 'Articles',
-                list: true,
-                ui: { itemProps: (item) => ({ label: item?.title || 'Article' }) },
-                fields: [
-                  { type: 'string', name: 'slug', label: 'URL slug' },
-                  { type: 'string', name: 'title', label: 'Title' },
-                  { type: 'string', name: 'excerpt', label: 'Excerpt', ui: { component: 'textarea' } },
-                  bodyField('body', 'Article content'),
-                ],
-              },
             ],
           },
           {
@@ -260,19 +247,6 @@ export default defineConfig({
               seoField,
               ...titleFields,
               { type: 'string', name: 'intro', label: 'Intro', ui: { component: 'textarea' } },
-              {
-                type: 'object',
-                name: 'items',
-                label: 'Resources',
-                list: true,
-                ui: { itemProps: (item) => ({ label: item?.title || 'Resource' }) },
-                fields: [
-                  { type: 'string', name: 'slug', label: 'URL slug' },
-                  { type: 'string', name: 'title', label: 'Title' },
-                  { type: 'string', name: 'excerpt', label: 'Excerpt', ui: { component: 'textarea' } },
-                  bodyField('body', 'Resource content'),
-                ],
-              },
             ],
           },
           {
@@ -282,19 +256,6 @@ export default defineConfig({
               seoField,
               ...titleFields,
               { type: 'string', name: 'intro', label: 'Intro', ui: { component: 'textarea' } },
-              {
-                type: 'object',
-                name: 'articles',
-                label: 'Stories',
-                list: true,
-                ui: { itemProps: (item) => ({ label: item?.title || 'Story' }) },
-                fields: [
-                  { type: 'string', name: 'slug', label: 'URL slug' },
-                  { type: 'string', name: 'title', label: 'Title' },
-                  { type: 'string', name: 'excerpt', label: 'Excerpt', ui: { component: 'textarea' } },
-                  bodyField('body', 'Story content'),
-                ],
-              },
             ],
           },
           {
@@ -402,6 +363,74 @@ export default defineConfig({
               },
             ],
           },
+        ],
+      },
+      {
+        name: 'post',
+        label: 'Blog posts (Inner Compass)',
+        path: 'content/posts',
+        format: 'json',
+        ui: {
+          allowedActions: { create: true, delete: true },
+          filename: {
+            slugify: (values) => {
+              const cat = (values.category || 'post').toString();
+              const raw = (values.slug || values.title || 'new-post').toString();
+              const slug = raw
+                .toLowerCase()
+                .replace(/['’"]/g, '')
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '');
+              return `${cat}-${slug || 'untitled'}`;
+            },
+          },
+          itemProps: (item) => ({
+            label: `[${item?.category || '?'}] ${item?.title || 'Untitled'}`,
+          }),
+        },
+        defaultItem: () => ({
+          category: 'insights',
+          publishedAt: new Date().toISOString(),
+          draft: false,
+          body: [{ _template: 'paragraph', text: '' }],
+        }),
+        fields: [
+          {
+            type: 'string',
+            name: 'category',
+            label: 'Category',
+            required: true,
+            options: [
+              { value: 'insights', label: 'Insights' },
+              { value: 'resources', label: 'Resources' },
+              { value: 'reflection-stories', label: 'Reflection Stories' },
+            ],
+          },
+          { type: 'string', name: 'title', label: 'Title', required: true },
+          {
+            type: 'string',
+            name: 'slug',
+            label: 'URL slug (used in the link, e.g. /insights#<slug>)',
+            required: true,
+          },
+          {
+            type: 'datetime',
+            name: 'publishedAt',
+            label: 'Publish date (newest shown first)',
+            required: true,
+          },
+          {
+            type: 'boolean',
+            name: 'draft',
+            label: 'Draft (hide from the live site)',
+          },
+          {
+            type: 'string',
+            name: 'excerpt',
+            label: 'Excerpt (shown on the index card)',
+            ui: { component: 'textarea' },
+          },
+          bodyField('body', 'Post content'),
         ],
       },
       {

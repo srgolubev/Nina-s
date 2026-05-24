@@ -5,8 +5,10 @@ import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
 import Reader from '../components/Reader.astro';
 import page from '../../content/pages/reflection-stories.json';
+import { getPosts } from '../lib/posts';
 
-const { seo, title, tagline, intro, articles } = page;
+const { seo, title, tagline, intro } = page;
+const articles = getPosts('reflection-stories');
 ---
 
 <Base title={seo.title} description={seo.description}>

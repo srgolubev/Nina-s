@@ -1,0 +1,26 @@
+{
+  "category": "reflection-stories",
+  "title": "Some Things Don’t Leave",
+  "slug": "some-things-dont-leave",
+  "publishedAt": "2026-05-12T10:00:00.000Z",
+  "draft": false,
+  "excerpt": "Some people don’t disappear. They just become harder to reach. And the hardest part is not losing someone — it’s realizing they’re still there, just not fully with you anymore.",
+  "body": [
+    { "_template": "paragraph", "text": "He never really raised his voice." },
+    { "_template": "paragraph", "text": "Even when he was upset, everything stayed controlled, quiet, contained." },
+    { "_template": "paragraph", "text": "At first, she thought that meant he was calm. Safe." },
+    { "_template": "paragraph", "text": "But over time, she started noticing something harder to name." },
+    { "_template": "paragraph", "text": "The things he didn’t say began to fill the space between them." },
+    { "_template": "paragraph", "text": "One evening, after an argument that never fully became an argument — no shouting, just silence — she said:" },
+    { "_template": "paragraph", "text": "“I feel like you leave before you actually leave.”" },
+    { "_template": "paragraph", "text": "He looked at her for a long moment." },
+    { "_template": "paragraph", "text": "And then said quietly," },
+    { "_template": "paragraph", "text": "“I don’t leave. I just don’t know how to stay fully here.”" },
+    { "_template": "paragraph", "text": "That stayed with her." },
+    { "_template": "paragraph", "text": "Because she realized something she hadn’t been able to see before:" },
+    { "_template": "paragraph", "text": "Some people don’t disappear." },
+    { "_template": "paragraph", "text": "They just become harder to reach." },
+    { "_template": "paragraph", "text": "And the hardest part is not losing someone." },
+    { "_template": "paragraph", "text": "It’s realizing they’re still there…\njust not fully with you anymore." }
+  ]
+}

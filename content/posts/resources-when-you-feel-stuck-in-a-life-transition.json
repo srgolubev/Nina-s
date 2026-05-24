@@ -1,0 +1,19 @@
+{
+  "category": "resources",
+  "title": "When You Feel Stuck in a Life Transition",
+  "slug": "when-you-feel-stuck-in-a-life-transition",
+  "publishedAt": "2026-05-15T10:00:00.000Z",
+  "draft": false,
+  "excerpt": "When old patterns no longer fit and new ones are not yet clear, a few questions can help you slow down and notice what is actually changing.",
+  "body": [
+    { "_template": "paragraph", "text": "Transitions can feel confusing because old patterns no longer fit, but new ones are not yet clear." },
+    { "_template": "paragraph", "text": "In these moments, it may help to slow down and ask:" },
+    { "_template": "list", "items": [
+      "What is actually changing in my life right now?",
+      "What feels uncertain — and what is still stable?",
+      "What expectations am I holding that no longer match reality?",
+      "What would it look like to give myself more time?"
+    ]},
+    { "_template": "paragraph", "text": "Stuckness is often not a lack of direction, but a process of adjustment." }
+  ]
+}

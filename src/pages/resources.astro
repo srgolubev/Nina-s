@@ -5,8 +5,10 @@ import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
 import Reader from '../components/Reader.astro';
 import page from '../../content/pages/resources.json';
+import { getPosts } from '../lib/posts';
 
-const { seo, title, tagline, intro, items } = page;
+const { seo, title, tagline, intro } = page;
+const articles = getPosts('resources');
 ---
 
 <Base title={seo.title} description={seo.description}>
@@ -19,15 +21,15 @@ const { seo, title, tagline, intro, items } = page;
 
       <div class="insight-grid">
         {
-          items.map((item) => (
+          articles.map((article) => (
             <article class="insight-card reveal">
               <h2>
-                <a class="reader-link" href={`#${item.slug}`} data-slug={item.slug}>
-                  {item.title}
+                <a class="reader-link" href={`#${article.slug}`} data-slug={article.slug}>
+                  {article.title}
                 </a>
               </h2>
-              {item.excerpt && <p class="insight-excerpt">{item.excerpt}</p>}
-              <a class="text-link reader-link" href={`#${item.slug}`} data-slug={item.slug}>
+              {article.excerpt && <p class="insight-excerpt">{article.excerpt}</p>}
+              <a class="text-link reader-link" href={`#${article.slug}`} data-slug={article.slug}>
                 <span>Open practice</span>
                 <span class="btn-caret" aria-hidden="true">›</span>
               </a>
@@ -40,5 +42,5 @@ const { seo, title, tagline, intro, items } = page;
 
   <Footer />
 
-  <Reader sectionLabel="Resources" articles={items} />
+  <Reader sectionLabel="Resources" articles={articles} />
 </Base>

@@ -1,0 +1,19 @@
+{
+  "category": "resources",
+  "title": "5 Questions for Emotional Clarity",
+  "slug": "five-questions-for-emotional-clarity",
+  "publishedAt": "2026-05-17T10:00:00.000Z",
+  "draft": false,
+  "excerpt": "Five gentle questions to sit with when things feel emotionally unclear — clarity often comes through noticing, not forcing.",
+  "body": [
+    { "_template": "paragraph", "text": "When things feel emotionally unclear, try gently sitting with these questions:" },
+    { "_template": "list", "items": [
+      "What am I feeling right now, without trying to fix it?",
+      "What part of this situation feels heavy or unclear?",
+      "What do I need more of in this moment — space, clarity, or support?",
+      "What am I trying to control that is not fully mine to control?",
+      "If I slowed down, what would become more visible?"
+    ]},
+    { "_template": "paragraph", "text": "There is no need to rush answers. Clarity often comes through noticing, not forcing." }
+  ]
+}

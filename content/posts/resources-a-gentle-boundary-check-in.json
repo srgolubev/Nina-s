@@ -1,0 +1,19 @@
+{
+  "category": "resources",
+  "title": "A Gentle Boundary Check-In",
+  "slug": "a-gentle-boundary-check-in",
+  "publishedAt": "2026-05-16T10:00:00.000Z",
+  "draft": false,
+  "excerpt": "Boundaries are not about distance — they are about clarity. A short reflection to notice where you may feel emotionally overextended.",
+  "body": [
+    { "_template": "paragraph", "text": "Boundaries are not about distance. They are about clarity." },
+    { "_template": "paragraph", "text": "You may find it helpful to reflect:" },
+    { "_template": "list", "items": [
+      "Where do I feel stretched or emotionally overextended?",
+      "What am I saying “yes” to that feels misaligned?",
+      "What would a softer, more honest “no” look like here?",
+      "What feels emotionally safe for me right now?"
+    ]},
+    { "_template": "paragraph", "text": "Boundaries often begin as internal awareness before they become external action." }
+  ]
+}
