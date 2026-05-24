@@ -23,7 +23,7 @@
   --radius-card: 14px;
   --radius-btn:  999px;
 
-  --font-script: "Pinyon Script", "Parisienne", cursive;
+  --font-script: "Parisienne", "Sacramento", "Pinyon Script", cursive;
   --font-serif:  "Cormorant Garamond", "Cormorant", "Georgia", serif;
   --font-sans:   "Mulish", "Helvetica Neue", system-ui, sans-serif;
 
@@ -324,7 +324,7 @@ button { font: inherit; cursor: pointer; }
   display: block;
   font-family: var(--font-script);
   font-size: clamp(46px, 7.2vw, 92px);
-  line-height: 1.18;   /* room for Pinyon Script descenders (q, g) */
+  line-height: 1.12;
   letter-spacing: 0.5px;
   padding-bottom: 0.08em;
 }
