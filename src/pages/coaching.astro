@@ -15,16 +15,14 @@ const {
   supportive,
   formatTitle,
   format,
-  investmentTitle,
-  price,
-  priceNote,
+  packagesTitle,
+  packagesIntro,
+  packages,
   noticeTitle,
   notice,
-  ctaLabel,
-  ctaHref,
 } = page;
 
-const ctaExternal = /^https?:\/\//i.test(ctaHref);
+const isExternal = (url: string) => /^https?:\/\//i.test(url);
 ---
 
 <Base title={seo.title} description={seo.description}>
@@ -42,41 +40,55 @@ const ctaExternal = /^https?:\/\//i.test(ctaHref);
         </ul>
       </section>
 
-      <div class="panel-grid">
-        <section class="panel reveal" aria-labelledby="format-h">
-          <h2 id="format-h" class="panel-title">{formatTitle}</h2>
-          <ul class="feature-list">
-            {format.map((item) => <li>{item}</li>)}
-          </ul>
-        </section>
+      <section class="panel reveal" aria-labelledby="format-h">
+        <h2 id="format-h" class="panel-title">{formatTitle}</h2>
+        <ul class="feature-list">
+          {format.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
 
-        <section class="panel panel--price reveal" aria-labelledby="investment-h">
-          <h2 id="investment-h" class="panel-title">{investmentTitle}</h2>
-          <p class="price">{price}</p>
-          <p class="price-note">{priceNote}</p>
-        </section>
-      </div>
+      {
+        packages && packages.length > 0 && (
+          <section class="packages reveal" aria-labelledby="packages-h">
+            <h2 id="packages-h" class="panel-title">{packagesTitle}</h2>
+            {packagesIntro && <p class="packages-intro">{packagesIntro}</p>}
+            <div class="packages-grid">
+              {packages.map((pack) => {
+                const external = isExternal(pack.ctaHref);
+                return (
+                  <article class="package-card">
+                    <header class="package-head">
+                      <h3 class="package-name">{pack.name}</h3>
+                      {pack.sessionsLabel && (
+                        <span class="package-sessions">{pack.sessionsLabel}</span>
+                      )}
+                      <span class="package-price">{pack.price}</span>
+                    </header>
+                    {pack.tagline && <p class="package-tagline">{pack.tagline}</p>}
+                    {pack.description && (
+                      <p class="package-description">{pack.description}</p>
+                    )}
+                    <a
+                      class="btn btn-primary package-cta"
+                      href={withBase(pack.ctaHref)}
+                      target={external ? '_blank' : undefined}
+                      rel={external ? 'noopener noreferrer' : undefined}
+                    >
+                      <span>{pack.ctaLabel || 'Book this'}</span>
+                      <span class="btn-caret" aria-hidden="true">›</span>
+                    </a>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
+        )
+      }
 
       <section class="note note--block reveal" aria-labelledby="notice-h">
         <h2 id="notice-h" class="note-title">{noticeTitle}</h2>
         <p>{notice}</p>
       </section>
-
-      {
-        ctaLabel && (
-          <div class="page-cta reveal">
-            <a
-              class="btn btn-primary"
-              href={withBase(ctaHref)}
-              target={ctaExternal ? '_blank' : undefined}
-              rel={ctaExternal ? 'noopener noreferrer' : undefined}
-            >
-              <span>{ctaLabel}</span>
-              <span class="btn-caret" aria-hidden="true">›</span>
-            </a>
-          </div>
-        )
-      }
     </div>
   </main>
 

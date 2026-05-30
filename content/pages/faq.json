@@ -1,19 +1,19 @@
 {
   "_template": "faq",
   "seo": {
-    "title": "FAQ — TranquilHaven Coaching",
-    "description": "Answers to common questions about coaching, sessions, confidentiality, pricing, and how TranquilHaven Coaching works."
+    "title": "FAQ — Tranquil Haven Coaching",
+    "description": "Answers to common questions about coaching, sessions, confidentiality, pricing, and how Tranquil Haven Coaching works."
   },
   "title": "FAQ",
   "tagline": "What to expect",
   "intro": "Honest answers to the questions that come up most — about coaching, how sessions work, confidentiality, and pricing.",
   "items": [
     {
-      "question": "What is TranquilHaven Coaching?",
+      "question": "What is Tranquil Haven Coaching?",
       "answer": [
         {
           "_template": "paragraph",
-          "text": "TranquilHaven Coaching is a private, psychologically-informed coaching practice for women seeking emotional clarity, relationship insight, and support through life transitions."
+          "text": "Tranquil Haven Coaching is a private, psychologically-informed coaching practice for women seeking emotional clarity, relationship insight, and support through life transitions."
         },
         {
           "_template": "paragraph",
@@ -61,7 +61,7 @@
       "answer": [
         {
           "_template": "paragraph",
-          "text": "TranquilHaven Coaching is not a high-intensity, performance-driven or motivational coaching practice. This is not a “push harder, do more, achieve faster” approach."
+          "text": "Tranquil Haven Coaching is not a high-intensity, performance-driven or motivational coaching practice. This is not a “push harder, do more, achieve faster” approach."
         },
         {
           "_template": "paragraph",
@@ -135,7 +135,7 @@
       "answer": [
         {
           "_template": "paragraph",
-          "text": "No. TranquilHaven Coaching does not provide psychotherapy, counseling, or mental health treatment."
+          "text": "No. Tranquil Haven Coaching does not provide psychotherapy, counseling, or mental health treatment."
         },
         {
           "_template": "paragraph",
@@ -217,7 +217,7 @@
         },
         {
           "_template": "paragraph",
-          "text": "TranquilHaven Coaching operates in alignment with the International Coaching Federation (ICF) Code of Ethics."
+          "text": "Tranquil Haven Coaching operates in alignment with the International Coaching Federation (ICF) Code of Ethics."
         },
         {
           "_template": "link",
@@ -231,7 +231,7 @@
       "answer": [
         {
           "_template": "paragraph",
-          "text": "TranquilHaven Coaching is a professional relationship limited to scheduled coaching sessions. There is no expectation of social or personal interaction outside of this context."
+          "text": "Tranquil Haven Coaching is a professional relationship limited to scheduled coaching sessions. There is no expectation of social or personal interaction outside of this context."
         },
         {
           "_template": "paragraph",
@@ -239,7 +239,7 @@
         },
         {
           "_template": "paragraph",
-          "text": "TranquilHaven Coaching reserves the right to discontinue services if professional boundaries are not maintained."
+          "text": "Tranquil Haven Coaching reserves the right to discontinue services if professional boundaries are not maintained."
         }
       ]
     },
@@ -260,7 +260,7 @@
         },
         {
           "_template": "paragraph",
-          "text": "Please note: TranquilHaven Coaching does not bill insurance providers and coaching services are not covered by health insurance in the United States."
+          "text": "Please note: Tranquil Haven Coaching does not bill insurance providers and coaching services are not covered by health insurance in the United States."
         }
       ]
     },
@@ -273,7 +273,7 @@
         },
         {
           "_template": "paragraph",
-          "text": "These notes are strictly for professional use within TranquilHaven Coaching and are kept confidential in accordance with ethical and legal standards. They are not shared with third parties."
+          "text": "These notes are strictly for professional use within Tranquil Haven Coaching and are kept confidential in accordance with ethical and legal standards. They are not shared with third parties."
         }
       ]
     },
@@ -286,7 +286,7 @@
         },
         {
           "_template": "paragraph",
-          "text": "This information is kept confidential and is used only within TranquilHaven Coaching in accordance with ethical and legal standards."
+          "text": "This information is kept confidential and is used only within Tranquil Haven Coaching in accordance with ethical and legal standards."
         },
         {
           "_template": "paragraph",

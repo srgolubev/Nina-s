@@ -1,12 +1,12 @@
 {
   "_template": "privacy",
   "seo": {
-    "title": "Privacy Policy — TranquilHaven Coaching",
-    "description": "How TranquilHaven Coaching collects, uses, and protects your personal information."
+    "title": "Privacy Policy — Tranquil Haven Coaching",
+    "description": "How Tranquil Haven Coaching collects, uses, and protects your personal information."
   },
   "title": "Privacy Policy",
   "tagline": "Your privacy",
-  "intro": "TranquilHaven Coaching is built around privacy and depth. This policy explains what information is collected, how it is used, and how it is protected.",
+  "intro": "Tranquil Haven Coaching is built around privacy and depth. This policy explains what information is collected, how it is used, and how it is protected.",
   "sections": [
     {
       "heading": "Information We Collect",
@@ -17,7 +17,7 @@
         },
         {
           "_template": "paragraph",
-          "text": "This information is kept confidential and is used only within TranquilHaven Coaching in accordance with ethical and legal standards."
+          "text": "This information is kept confidential and is used only within Tranquil Haven Coaching in accordance with ethical and legal standards."
         }
       ]
     },
@@ -26,7 +26,7 @@
       "body": [
         {
           "_template": "paragraph",
-          "text": "Brief notes may be taken during sessions to support focus, reflection, and continuity of the coaching process. These notes are strictly for professional use within TranquilHaven Coaching and are kept confidential in accordance with ethical and legal standards. They are not shared with third parties."
+          "text": "Brief notes may be taken during sessions to support focus, reflection, and continuity of the coaching process. These notes are strictly for professional use within Tranquil Haven Coaching and are kept confidential in accordance with ethical and legal standards. They are not shared with third parties."
         },
         {
           "_template": "paragraph",
@@ -43,7 +43,7 @@
         },
         {
           "_template": "paragraph",
-          "text": "TranquilHaven Coaching operates in alignment with the International Coaching Federation (ICF) Code of Ethics."
+          "text": "Tranquil Haven Coaching operates in alignment with the International Coaching Federation (ICF) Code of Ethics."
         },
         {
           "_template": "link",
@@ -57,7 +57,7 @@
       "body": [
         {
           "_template": "paragraph",
-          "text": "TranquilHaven Coaching provides coaching services only and does not provide psychotherapy, counseling, or mental health treatment. It does not diagnose, treat, or cure mental health conditions."
+          "text": "Tranquil Haven Coaching provides coaching services only and does not provide psychotherapy, counseling, or mental health treatment. It does not diagnose, treat, or cure mental health conditions."
         }
       ]
     }

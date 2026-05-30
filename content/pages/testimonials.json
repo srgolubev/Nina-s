@@ -1,8 +1,8 @@
 {
   "_template": "testimonials",
   "seo": {
-    "title": "Testimonials — TranquilHaven Coaching",
-    "description": "What clients say about coaching with TranquilHaven — a calmer, clearer, more reflective space."
+    "title": "Testimonials — Tranquil Haven Coaching",
+    "description": "What clients say about coaching with Tranquil Haven — a calmer, clearer, more reflective space."
   },
   "title": "Testimonials",
   "tagline": "In their words",
@@ -22,7 +22,7 @@
     },
     {
       "quote": "The audio-only format made me feel very comfortable and private. That mattered a lot to me.",
-      "author": "Client, USA"
+      "author": "C.A."
     }
   ],
   "note": "Please note: Testimonials reflect individual experiences and do not guarantee results.",

@@ -1,12 +1,12 @@
 {
   "_template": "coaching",
   "seo": {
-    "title": "Coaching — TranquilHaven Coaching",
+    "title": "Coaching — Tranquil Haven Coaching",
     "description": "Confidential, psychologically-informed online coaching for women navigating emotional overwhelm, relationship challenges, life transitions, and personal growth."
   },
   "title": "Coaching",
   "tagline": "Private Online Coaching",
-  "intro": "TranquilHaven Coaching offers confidential, psychologically-informed coaching for women navigating emotional overwhelm, relationship challenges, life transitions, and personal growth.",
+  "intro": "Tranquil Haven Coaching offers confidential, psychologically-informed coaching for women navigating emotional overwhelm, relationship challenges, life transitions, and personal growth.",
   "supportiveTitle": "Coaching may be supportive for",
   "supportive": [
     "Relationship and communication difficulties",
@@ -22,11 +22,46 @@
     "Zoom sessions available",
     "English and Russian language support"
   ],
-  "investmentTitle": "Investment",
-  "price": "$100",
-  "priceNote": "per 50-minute session",
+  "packagesTitle": "Ways to Work Together",
+  "packagesIntro": "Choose what fits where you are right now — a single session for a current question, or a longer arc when something needs steady time.",
+  "packages": [
+    {
+      "name": "Clarity Session",
+      "sessionsLabel": "Single session",
+      "price": "$120",
+      "tagline": "For gaining clarity on what's happening in your current situation and identifying your next step.",
+      "description": "Focus on your current challenge, untangling confusion, and identifying what actually matters right now so the situation becomes easier to understand and next steps feel clearer.",
+      "ctaLabel": "Book this session",
+      "ctaHref": "https://calendar.app.google/7cT1RC2g7GbCfiTY7"
+    },
+    {
+      "name": "Focused Support Package",
+      "sessionsLabel": "4 sessions",
+      "price": "$460",
+      "tagline": "For working through a specific life or relationship situation with consistency and support.",
+      "description": "Designed for clients who want more than one conversation — movement rather than one-time insight. Exploration of what's going on, what patterns are repeating, and how different responses can begin to show up in daily life.",
+      "ctaLabel": "Book this package",
+      "ctaHref": "https://calendar.app.google/7cT1RC2g7GbCfiTY7"
+    },
+    {
+      "name": "Deeper Work Package",
+      "sessionsLabel": "8 sessions",
+      "price": "$880",
+      "tagline": "For emotional patterns, relationship dynamics, and internal blocks that don't shift in one conversation.",
+      "description": "A slower process focused on understanding what keeps repeating so change can begin in a grounded, realistic way over time.",
+      "ctaLabel": "Book this package",
+      "ctaHref": "https://calendar.app.google/7cT1RC2g7GbCfiTY7"
+    },
+    {
+      "name": "Life Transition Package",
+      "sessionsLabel": "12 sessions",
+      "price": "$1,200",
+      "tagline": "For longer-term support through a meaningful life change or emotional transition.",
+      "description": "Steady support during periods of change, with space for reflection, grounding, and rebuilding internal clarity and self-trust while moving through transition.",
+      "ctaLabel": "Book this package",
+      "ctaHref": "https://calendar.app.google/7cT1RC2g7GbCfiTY7"
+    }
+  ],
   "noticeTitle": "Important Notice",
-  "notice": "Coaching is not psychotherapy, counseling, or mental health treatment. TranquilHaven Coaching does not diagnose or treat mental health conditions.",
-  "ctaLabel": "Book a Session",
-  "ctaHref": "https://calendar.app.google/7cT1RC2g7GbCfiTY7"
+  "notice": "Coaching is not psychotherapy, counseling, or mental health treatment. Tranquil Haven Coaching does not diagnose or treat mental health conditions."
 }

@@ -1,7 +1,7 @@
 {
   "_template": "home",
   "seo": {
-    "title": "TranquilHaven Coaching — Less noise. More you.",
+    "title": "Tranquil Haven Coaching — Less noise. More you.",
     "description": "A private, psychologically-informed coaching practice for women seeking emotional clarity, calmer relationships, and thoughtful personal growth."
   },
   "hero": {
@@ -18,7 +18,7 @@
       "title": "About Me",
       "variant": "portrait",
       "image": "/images/coach.jpg",
-      "imageAlt": "TranquilHaven Coaching — coach portrait",
+      "imageAlt": "Tranquil Haven Coaching — coach portrait",
       "body": "Guiding you to a place of calm and clarity",
       "buttonLabel": "Learn More",
       "buttonHref": "/about",

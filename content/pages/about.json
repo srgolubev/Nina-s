@@ -1,16 +1,16 @@
 {
   "_template": "about",
   "seo": {
-    "title": "About — TranquilHaven Coaching",
-    "description": "TranquilHaven Coaching is a private, psychologically-informed coaching practice for women seeking emotional clarity, calmer relationships, and thoughtful personal growth."
+    "title": "About — Tranquil Haven Coaching",
+    "description": "Tranquil Haven Coaching is a private, psychologically-informed coaching practice for women seeking emotional clarity, calmer relationships, and thoughtful personal growth."
   },
   "title": "About",
   "tagline": "Less noise. More you.",
-  "lead": "Less noise. More you.\nThat's TranquilHaven Coaching.",
+  "lead": "Less noise. More you.\nThat's Tranquil Haven Coaching.",
   "body": [
     {
       "_template": "paragraph",
-      "text": "TranquilHaven Coaching is a private, psychologically-informed coaching practice for women seeking emotional clarity, calmer relationships, and thoughtful personal growth."
+      "text": "Tranquil Haven Coaching is a private, psychologically-informed coaching practice for women seeking emotional clarity, calmer relationships, and thoughtful personal growth."
     },
     {
       "_template": "paragraph",
@@ -18,7 +18,7 @@
     },
     {
       "_template": "paragraph",
-      "text": "Created with privacy and depth in mind, TranquilHaven Coaching is designed for women who prefer a quieter, more thoughtful approach — free from hype, pressure, and constant social noise."
+      "text": "Created with privacy and depth in mind, Tranquil Haven Coaching is designed for women who prefer a quieter, more thoughtful approach — free from hype, pressure, and constant social noise."
     },
     {
       "_template": "paragraph",
@@ -26,7 +26,7 @@
     }
   ],
   "closing": "Your Tranquil Haven",
-  "note": "Please note: TranquilHaven Coaching provides coaching services only and does not provide psychotherapy, counseling, or mental health treatment.",
+  "note": "Please note: Tranquil Haven Coaching provides coaching services only and does not provide psychotherapy, counseling, or mental health treatment.",
   "ctaLabel": "Get in Touch",
   "ctaHref": "/contact"
 }
