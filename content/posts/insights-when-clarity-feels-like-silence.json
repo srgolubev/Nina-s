@@ -5,11 +5,54 @@
   "publishedAt": "2026-05-20T10:00:00.000Z",
   "draft": false,
   "excerpt": "Sometimes clarity does not arrive as an answer. It arrives as a soft pause where the noise begins to settle.",
-  "body": [
-    { "_template": "paragraph", "text": "Sometimes clarity does not arrive as an answer. It arrives as a soft pause where the noise begins to settle." },
-    { "_template": "paragraph", "text": "In emotional or relational uncertainty, we often expect insight to feel like direction. But more often, clarity begins as a moment of internal quiet — where less feels confusing, and more feels unnecessary." },
-    { "_template": "paragraph", "text": "This space can feel unfamiliar. Many people interpret it as “nothing is happening,” when in fact, something important is reorganizing internally." },
-    { "_template": "paragraph", "text": "Clarity is not always loud. Sometimes it is simply the absence of inner contradiction." },
-    { "_template": "paragraph", "text": "In coaching work, this is often the beginning of change — not when everything is resolved, but when the noise is no longer in charge." }
-  ]
+  "body": {
+    "type": "root",
+    "children": [
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Sometimes clarity does not arrive as an answer. It arrives as a soft pause where the noise begins to settle."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In emotional or relational uncertainty, we often expect insight to feel like direction. But more often, clarity begins as a moment of internal quiet — where less feels confusing, and more feels unnecessary."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This space can feel unfamiliar. Many people interpret it as “nothing is happening,” when in fact, something important is reorganizing internally."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Clarity is not always loud. Sometimes it is simply the absence of inner contradiction."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In coaching work, this is often the beginning of change — not when everything is resolved, but when the noise is no longer in charge."
+          }
+        ]
+      }
+    ]
+  }
 }

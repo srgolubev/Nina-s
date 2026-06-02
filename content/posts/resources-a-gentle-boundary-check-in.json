@@ -5,15 +5,97 @@
   "publishedAt": "2026-05-16T10:00:00.000Z",
   "draft": false,
   "excerpt": "Boundaries are not about distance — they are about clarity. A short reflection to notice where you may feel emotionally overextended.",
-  "body": [
-    { "_template": "paragraph", "text": "Boundaries are not about distance. They are about clarity." },
-    { "_template": "paragraph", "text": "You may find it helpful to reflect:" },
-    { "_template": "list", "items": [
-      "Where do I feel stretched or emotionally overextended?",
-      "What am I saying “yes” to that feels misaligned?",
-      "What would a softer, more honest “no” look like here?",
-      "What feels emotionally safe for me right now?"
-    ]},
-    { "_template": "paragraph", "text": "Boundaries often begin as internal awareness before they become external action." }
-  ]
+  "body": {
+    "type": "root",
+    "children": [
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Boundaries are not about distance. They are about clarity."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "You may find it helpful to reflect:"
+          }
+        ]
+      },
+      {
+        "type": "ul",
+        "children": [
+          {
+            "type": "li",
+            "children": [
+              {
+                "type": "lic",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Where do I feel stretched or emotionally overextended?"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "li",
+            "children": [
+              {
+                "type": "lic",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "What am I saying “yes” to that feels misaligned?"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "li",
+            "children": [
+              {
+                "type": "lic",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "What would a softer, more honest “no” look like here?"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "li",
+            "children": [
+              {
+                "type": "lic",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "What feels emotionally safe for me right now?"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Boundaries often begin as internal awareness before they become external action."
+          }
+        ]
+      }
+    ]
+  }
 }
