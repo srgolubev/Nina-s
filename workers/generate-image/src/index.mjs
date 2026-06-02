@@ -5,17 +5,23 @@
 // Vars (wrangler.toml):          GITHUB_REPO, GITHUB_BRANCH, ALLOWED_ORIGIN
 
 const BRAND_STYLE =
-  'Soft, calm, minimal fine-art illustration for a quiet coaching brand. ' +
+  'Soft, calm, representational fine-art illustration for a quiet coaching ' +
+  'brand called "Tranquil Haven". A recurring, recognisable world: a peaceful ' +
+  'coastal harbour at golden hour — calm water, a small white lighthouse, a ' +
+  'few gently moored sailboats, a quiet sandy shore, soft sky. ' +
   'Coastal sunset palette: warm sand, cream, muted teal and soft gold. ' +
-  'Gentle natural light, lots of negative space, serene and unhurried mood, ' +
-  'subtle grain, no text, no words, no letters, no logos, no people faces in focus.';
+  'Gentle natural light, serene and unhurried mood, soft depth, subtle grain. ' +
+  'Any people are small and distant, faces never in focus. ' +
+  'No text, no words, no letters, no logos.';
 
 function buildPrompt({ title, excerpt, category }) {
   const theme = [title, excerpt].filter(Boolean).join(' — ');
   return (
     `${BRAND_STYLE} ` +
-    `The image should evoke the feeling of this reflection: "${theme}". ` +
-    `Abstract and atmospheric rather than literal. Square composition.`
+    `Show a gentle, real scene within this tranquil harbour that quietly ` +
+    `reflects the feeling of: "${theme}". ` +
+    `Keep it representational and grounded — a calm place a viewer could ` +
+    `imagine sitting in — not abstract shapes. Square composition.`
   );
 }
 
