@@ -5,22 +5,45 @@
   "publishedAt": "2026-05-19T10:00:00.000Z",
   "draft": false,
   "excerpt": "So many people stay in a state of emotional tension in relationships where nothing is clearly broken, but something still feels heavy.",
-  "body": [
-    {
-      "text": "So many people stay in a state of emotional tension in relationships where nothing is clearly broken, but something still feels heavy.",
-      "_template": "paragraph"
-    },
-    {
-      "text": "This experience is often difficult to name, because it does not fit into extremes. It is not crisis. It is not calm.",
-      "_template": "paragraph"
-    },
-    {
-      "text": "In coaching work, this is often where deeper patterns become visible — communication styles, unmet needs, emotional boundaries, and internal expectations that were never fully expressed.",
-      "_template": "paragraph"
-    },
-    {
-      "text": "Clarity begins when these patterns are seen without judgment.",
-      "_template": "paragraph"
-    }
-  ]
+  "body": {
+    "type": "root",
+    "children": [
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "So many people stay in a state of emotional tension in relationships where nothing is clearly broken, but something still feels heavy."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This experience is often difficult to name, because it does not fit into extremes. It is not crisis. It is not calm."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In coaching work, this is often where deeper patterns become visible — communication styles, unmet needs, emotional boundaries, and internal expectations that were never fully expressed."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Clarity begins when these patterns are seen without judgment."
+          }
+        ]
+      }
+    ]
+  }
 }

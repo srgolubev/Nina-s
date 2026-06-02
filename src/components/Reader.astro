@@ -1,10 +1,10 @@
 ---
-import Blocks from './Blocks.astro';
+import RichText from './RichText.astro';
 
 interface Article {
   slug: string;
   title: string;
-  body: any[];
+  body: any;
 }
 
 interface Props {
@@ -21,7 +21,7 @@ const { sectionLabel, articles } = Astro.props;
       <p class="reading-eyebrow">{sectionLabel}</p>
       <h1>{article.title}</h1>
       <div class="reading-rule" aria-hidden="true"></div>
-      <Blocks blocks={article.body} />
+      <RichText content={article.body} />
       <div class="reading-rule reading-rule--bottom" aria-hidden="true"></div>
     </template>
   ))

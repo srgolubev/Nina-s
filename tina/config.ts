@@ -40,41 +40,12 @@ const seoField = {
   ],
 };
 
-// Rich body content: a list of paragraphs, bulleted lists and links.
-const blockTemplates = [
-  {
-    name: 'paragraph',
-    label: 'Paragraph',
-    fields: [
-      {
-        type: 'string' as const,
-        name: 'text',
-        label: 'Text',
-        ui: { component: 'textarea' as const },
-      },
-    ],
-  },
-  {
-    name: 'list',
-    label: 'Bulleted list',
-    fields: [{ type: 'string' as const, name: 'items', label: 'Items', list: true }],
-  },
-  {
-    name: 'link',
-    label: 'Link',
-    fields: [
-      { type: 'string' as const, name: 'label', label: 'Link text' },
-      { type: 'string' as const, name: 'url', label: 'URL' },
-    ],
-  },
-];
-
 const bodyField = (name: string, label: string) => ({
-  type: 'object' as const,
+  // Rich-text gives editors a single WYSIWYG area (type freely, format with
+  // the toolbar) instead of adding each paragraph as a separate block.
+  type: 'rich-text' as const,
   name,
   label,
-  list: true,
-  templates: blockTemplates,
 });
 
 const titleFields = [

@@ -5,18 +5,173 @@
   "publishedAt": "2026-05-14T10:00:00.000Z",
   "draft": false,
   "excerpt": "“What if one day I become completely different? Would you still love me?” And years later, she noticed how love must keep getting to know who we are becoming.",
-  "body": [
-    { "_template": "paragraph", "text": "Once, she asked him,\n“What if one day I become completely different? Would you still love me?”" },
-    { "_template": "paragraph", "text": "He smiled softly." },
-    { "_template": "paragraph", "text": "“You’re already changing all the time.”" },
-    { "_template": "paragraph", "text": "She didn’t understand what he meant then." },
-    { "_template": "paragraph", "text": "But years later, she noticed it herself." },
-    { "_template": "paragraph", "text": "She no longer laughed the way she used to.\nThe dreams that once felt so important had changed.\nEven the things that hurt her were different now." },
-    { "_template": "paragraph", "text": "And somewhere along the way, she realized something quiet and almost heartbreaking:" },
-    { "_template": "paragraph", "text": "We do not stay the same person for very long." },
-    { "_template": "paragraph", "text": "Life changes us slowly.\nLove changes us.\nLoss changes us.\nTime changes us." },
-    { "_template": "paragraph", "text": "And maybe real love is not finding someone who loves you exactly as you are today." },
-    { "_template": "paragraph", "text": "Maybe it’s finding someone willing to keep getting to know you —\nagain and again." },
-    { "_template": "paragraph", "text": "Someone who notices who you are becoming…\nand chooses to stay anyway." }
-  ]
+  "body": {
+    "type": "root",
+    "children": [
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Once, she asked him,"
+          },
+          {
+            "type": "break"
+          },
+          {
+            "type": "text",
+            "text": "“What if one day I become completely different? Would you still love me?”"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "He smiled softly."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "“You’re already changing all the time.”"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "She didn’t understand what he meant then."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "But years later, she noticed it herself."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "She no longer laughed the way she used to."
+          },
+          {
+            "type": "break"
+          },
+          {
+            "type": "text",
+            "text": "The dreams that once felt so important had changed."
+          },
+          {
+            "type": "break"
+          },
+          {
+            "type": "text",
+            "text": "Even the things that hurt her were different now."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "And somewhere along the way, she realized something quiet and almost heartbreaking:"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We do not stay the same person for very long."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Life changes us slowly."
+          },
+          {
+            "type": "break"
+          },
+          {
+            "type": "text",
+            "text": "Love changes us."
+          },
+          {
+            "type": "break"
+          },
+          {
+            "type": "text",
+            "text": "Loss changes us."
+          },
+          {
+            "type": "break"
+          },
+          {
+            "type": "text",
+            "text": "Time changes us."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "And maybe real love is not finding someone who loves you exactly as you are today."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Maybe it’s finding someone willing to keep getting to know you —"
+          },
+          {
+            "type": "break"
+          },
+          {
+            "type": "text",
+            "text": "again and again."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Someone who notices who you are becoming…"
+          },
+          {
+            "type": "break"
+          },
+          {
+            "type": "text",
+            "text": "and chooses to stay anyway."
+          }
+        ]
+      }
+    ]
+  }
 }

@@ -10,56 +10,113 @@
   "sections": [
     {
       "heading": "Information We Collect",
-      "body": [
-        {
-          "_template": "paragraph",
-          "text": "Basic personal information such as name, email address, and optionally a phone number is collected for the purpose of scheduling, communication, and providing coaching services."
-        },
-        {
-          "_template": "paragraph",
-          "text": "This information is kept confidential and is used only within Tranquil Haven Coaching in accordance with ethical and legal standards."
-        }
-      ]
+      "body": {
+        "type": "root",
+        "children": [
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Basic personal information such as name, email address, and optionally a phone number is collected for the purpose of scheduling, communication, and providing coaching services."
+              }
+            ]
+          },
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "This information is kept confidential and is used only within Tranquil Haven Coaching in accordance with ethical and legal standards."
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "heading": "Session Records",
-      "body": [
-        {
-          "_template": "paragraph",
-          "text": "Brief notes may be taken during sessions to support focus, reflection, and continuity of the coaching process. These notes are strictly for professional use within Tranquil Haven Coaching and are kept confidential in accordance with ethical and legal standards. They are not shared with third parties."
-        },
-        {
-          "_template": "paragraph",
-          "text": "Coaching sessions and hours are documented in a professional coaching log for business records and professional development purposes, including ICF credentialing requirements. This log contains only basic session information (such as date and duration) and does not include session content. No session content is shared or submitted to any external organization."
-        }
-      ]
+      "body": {
+        "type": "root",
+        "children": [
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Brief notes may be taken during sessions to support focus, reflection, and continuity of the coaching process. These notes are strictly for professional use within Tranquil Haven Coaching and are kept confidential in accordance with ethical and legal standards. They are not shared with third parties."
+              }
+            ]
+          },
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Coaching sessions and hours are documented in a professional coaching log for business records and professional development purposes, including ICF credentialing requirements. This log contains only basic session information (such as date and duration) and does not include session content. No session content is shared or submitted to any external organization."
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "heading": "Confidentiality",
-      "body": [
-        {
-          "_template": "paragraph",
-          "text": "All coaching sessions are confidential within legal and ethical limits. Confidentiality may be limited only in situations where there is risk of harm to self or others, as required by law."
-        },
-        {
-          "_template": "paragraph",
-          "text": "Tranquil Haven Coaching operates in alignment with the International Coaching Federation (ICF) Code of Ethics."
-        },
-        {
-          "_template": "link",
-          "label": "Read the ICF Code of Ethics",
-          "url": "https://coachingfederation.org/ethics/code-of-ethics"
-        }
-      ]
+      "body": {
+        "type": "root",
+        "children": [
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "All coaching sessions are confidential within legal and ethical limits. Confidentiality may be limited only in situations where there is risk of harm to self or others, as required by law."
+              }
+            ]
+          },
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Tranquil Haven Coaching operates in alignment with the International Coaching Federation (ICF) Code of Ethics."
+              }
+            ]
+          },
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "a",
+                "url": "https://coachingfederation.org/ethics/code-of-ethics",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Read the ICF Code of Ethics"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "heading": "Scope of Services",
-      "body": [
-        {
-          "_template": "paragraph",
-          "text": "Tranquil Haven Coaching provides coaching services only and does not provide psychotherapy, counseling, or mental health treatment. It does not diagnose, treat, or cure mental health conditions."
-        }
-      ]
+      "body": {
+        "type": "root",
+        "children": [
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Tranquil Haven Coaching provides coaching services only and does not provide psychotherapy, counseling, or mental health treatment. It does not diagnose, treat, or cure mental health conditions."
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }
