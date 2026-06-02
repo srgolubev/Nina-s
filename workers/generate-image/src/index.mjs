@@ -41,6 +41,18 @@ const slugify = (s) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '') || 'post';
 
+// Convert an ArrayBuffer to base64 in chunks (avoids call-stack overflow on
+// large images).
+function arrayBufferToBase64(buf) {
+  const bytes = new Uint8Array(buf);
+  let binary = '';
+  const chunk = 0x8000;
+  for (let i = 0; i < bytes.length; i += chunk) {
+    binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk));
+  }
+  return btoa(binary);
+}
+
 async function commitToGitHub(env, path, contentB64, message) {
   const base = `https://api.github.com/repos/${env.GITHUB_REPO}/contents/${path}`;
   const headers = {
@@ -103,15 +115,23 @@ export default {
           prompt,
           size: '1024x1024',
           n: 1,
-          response_format: 'b64_json',
         }),
       });
       if (!aiRes.ok) {
         return json({ error: 'openai', detail: await aiRes.text() }, 502, cors);
       }
       const aiData = await aiRes.json();
-      b64 = aiData.data && aiData.data[0] && aiData.data[0].b64_json;
-      if (!b64) return json({ error: 'no image returned' }, 502, cors);
+      const item = aiData.data && aiData.data[0];
+      if (!item) return json({ error: 'no image returned' }, 502, cors);
+      // The API may return either inline base64 or a temporary URL.
+      if (item.b64_json) {
+        b64 = item.b64_json;
+      } else if (item.url) {
+        const imgRes = await fetch(item.url);
+        if (!imgRes.ok) return json({ error: 'image download failed' }, 502, cors);
+        b64 = arrayBufferToBase64(await imgRes.arrayBuffer());
+      }
+      if (!b64) return json({ error: 'no image data' }, 502, cors);
     } catch (e) {
       return json({ error: 'openai request failed', detail: String(e) }, 502, cors);
     }
