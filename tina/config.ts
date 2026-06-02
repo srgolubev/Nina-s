@@ -271,11 +271,10 @@ export default defineConfig({
             ],
           },
           {
-            // Tina template names must be alphanumeric/underscore only.
-            // nameOverride keeps the "_template" value in the JSON file as
-            // "reflection-stories" so existing content still matches.
+            // Tina template names must be alphanumeric/underscore only, so
+            // this template is reflection_stories and the JSON file carries
+            // "_template": "reflection_stories" to match.
             name: 'reflection_stories',
-            nameOverride: 'reflection-stories',
             label: 'Reflection Stories',
             fields: [
               seoField,
