@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
+import { withBase } from '../lib/url';
 import page from '../../content/pages/contact.json';
 
 const {
@@ -48,7 +49,7 @@ const isExternal = (url: string) => /^https?:/i.test(url);
               <li>
                 <a
                   class="contact-channel"
-                  href={c.url}
+                  href={withBase(c.url)}
                   target={isExternal(c.url) ? '_blank' : undefined}
                   rel={isExternal(c.url) ? 'noopener noreferrer' : undefined}
                 >
