@@ -1,8 +1,8 @@
 ---
-import { richTextToHtml, type RichText } from '../lib/richtext';
+import { richTextToHtml } from '../lib/richtext';
 
 interface Props {
-  content: RichText | null | undefined;
+  content: string | null | undefined;
 }
 
 const { content } = Astro.props;

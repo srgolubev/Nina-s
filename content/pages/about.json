@@ -7,47 +7,7 @@
   "title": "About",
   "tagline": "Less noise. More you.",
   "lead": "Less noise. More you.\nThat's Tranquil Haven Coaching.",
-  "body": {
-    "type": "root",
-    "children": [
-      {
-        "type": "p",
-        "children": [
-          {
-            "type": "text",
-            "text": "Tranquil Haven Coaching is a private, psychologically-informed coaching practice for women seeking emotional clarity, calmer relationships, and thoughtful personal growth."
-          }
-        ]
-      },
-      {
-        "type": "p",
-        "children": [
-          {
-            "type": "text",
-            "text": "As an ICF Member and psychology-informed coach, I offer confidential coaching support for life transitions, relationships, family dynamics, multicultural experiences, and personal reflection."
-          }
-        ]
-      },
-      {
-        "type": "p",
-        "children": [
-          {
-            "type": "text",
-            "text": "Created with privacy and depth in mind, Tranquil Haven Coaching is designed for women who prefer a quieter, more thoughtful approach — free from hype, pressure, and constant social noise."
-          }
-        ]
-      },
-      {
-        "type": "p",
-        "children": [
-          {
-            "type": "text",
-            "text": "Sessions are available online, so you can meet from a space that feels comfortable and private."
-          }
-        ]
-      }
-    ]
-  },
+  "body": "Tranquil Haven Coaching is a private, psychologically-informed coaching practice for women seeking emotional clarity, calmer relationships, and thoughtful personal growth.\n\nAs an ICF Member and psychology-informed coach, I offer confidential coaching support for life transitions, relationships, family dynamics, multicultural experiences, and personal reflection.\n\nCreated with privacy and depth in mind, Tranquil Haven Coaching is designed for women who prefer a quieter, more thoughtful approach — free from hype, pressure, and constant social noise.\n\nSessions are available online, so you can meet from a space that feels comfortable and private.\n",
   "closing": "Your Tranquil Haven",
   "note": "Please note: Tranquil Haven Coaching provides coaching services only and does not provide psychotherapy, counseling, or mental health treatment.",
   "ctaLabel": "Get in Touch",

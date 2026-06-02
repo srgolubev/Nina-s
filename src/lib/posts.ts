@@ -8,7 +8,7 @@ interface RawPost {
   publishedAt?: string;
   draft?: boolean;
   excerpt?: string;
-  body?: any;
+  body?: string;
 }
 
 export interface Post {
@@ -18,7 +18,7 @@ export interface Post {
   publishedAt: string;
   draft: boolean;
   excerpt: string;
-  body: any;
+  body: string;
 }
 
 const modules = import.meta.glob<{ default: RawPost } | RawPost>(
@@ -36,7 +36,7 @@ const allPosts: Post[] = Object.values(modules)
     publishedAt: String(p.publishedAt ?? ''),
     draft: Boolean(p.draft),
     excerpt: String(p.excerpt ?? ''),
-    body: p.body ?? { type: 'root', children: [] },
+    body: typeof p.body === 'string' ? p.body : '',
   }))
   .filter((p) => p.category && p.slug && p.title);
 

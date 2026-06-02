@@ -1178,7 +1178,14 @@ button { font: inherit; cursor: pointer; }
   padding: 0;
   margin: 0.4em 0 1.4em;
 }
+.reading-article ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.4em 0 1.4em;
+}
 .reading-article li {
+  position: relative;
+  padding-left: 26px;
   font-family: var(--font-serif);
   font-style: italic;
   font-size: clamp(16px, 1.4vw, 18px);
@@ -1186,11 +1193,16 @@ button { font: inherit; cursor: pointer; }
   color: var(--teal-ink);
   margin: 0 0 0.55em;
 }
-/* Reading-mode list marker: reuse the small circular bullet defined for
-   .block-list, just tinted to match the calm teal palette. Width/height,
-   border-radius, position and content all fall through from
-   .block-list li::before, so the dot stays a single clean marker. */
+/* Reading-mode list marker: a small teal dot (marked renders plain <ul>/<li>
+   without the .block-list class, so this is self-contained). */
 .reading-article li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.62em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
   background: var(--teal);
   opacity: 0.5;
 }
