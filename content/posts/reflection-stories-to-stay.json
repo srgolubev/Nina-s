@@ -16,7 +16,13 @@
             "text": "Once, she asked him,"
           },
           {
-            "type": "break"
+            "type": "break",
+            "children": [
+              {
+                "type": "text",
+                "text": ""
+              }
+            ]
           },
           {
             "type": "text",
@@ -68,14 +74,26 @@
             "text": "She no longer laughed the way she used to."
           },
           {
-            "type": "break"
+            "type": "break",
+            "children": [
+              {
+                "type": "text",
+                "text": ""
+              }
+            ]
           },
           {
             "type": "text",
             "text": "The dreams that once felt so important had changed."
           },
           {
-            "type": "break"
+            "type": "break",
+            "children": [
+              {
+                "type": "text",
+                "text": ""
+              }
+            ]
           },
           {
             "type": "text",
@@ -109,21 +127,39 @@
             "text": "Life changes us slowly."
           },
           {
-            "type": "break"
+            "type": "break",
+            "children": [
+              {
+                "type": "text",
+                "text": ""
+              }
+            ]
           },
           {
             "type": "text",
             "text": "Love changes us."
           },
           {
-            "type": "break"
+            "type": "break",
+            "children": [
+              {
+                "type": "text",
+                "text": ""
+              }
+            ]
           },
           {
             "type": "text",
             "text": "Loss changes us."
           },
           {
-            "type": "break"
+            "type": "break",
+            "children": [
+              {
+                "type": "text",
+                "text": ""
+              }
+            ]
           },
           {
             "type": "text",
@@ -148,7 +184,13 @@
             "text": "Maybe it’s finding someone willing to keep getting to know you —"
           },
           {
-            "type": "break"
+            "type": "break",
+            "children": [
+              {
+                "type": "text",
+                "text": ""
+              }
+            ]
           },
           {
             "type": "text",
@@ -164,7 +206,13 @@
             "text": "Someone who notices who you are becoming…"
           },
           {
-            "type": "break"
+            "type": "break",
+            "children": [
+              {
+                "type": "text",
+                "text": ""
+              }
+            ]
           },
           {
             "type": "text",

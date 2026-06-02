@@ -25,7 +25,13 @@
             "text": "If one of them got quiet for too long, the other could just say:"
           },
           {
-            "type": "break"
+            "type": "break",
+            "children": [
+              {
+                "type": "text",
+                "text": ""
+              }
+            ]
           },
           {
             "type": "text",
@@ -212,7 +218,13 @@
             "text": "Just the ability to notice when the other one drifts…"
           },
           {
-            "type": "break"
+            "type": "break",
+            "children": [
+              {
+                "type": "text",
+                "text": ""
+              }
+            ]
           },
           {
             "type": "text",

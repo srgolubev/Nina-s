@@ -151,7 +151,13 @@
             "text": "It’s realizing they’re still there…"
           },
           {
-            "type": "break"
+            "type": "break",
+            "children": [
+              {
+                "type": "text",
+                "text": ""
+              }
+            ]
           },
           {
             "type": "text",
