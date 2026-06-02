@@ -84,8 +84,11 @@ const titleFields = [
 
 export default defineConfig({
   branch,
-  // From https://app.tina.io — only needed for the hosted /admin in production.
-  clientId: process.env.TINA_CLIENT_ID || '',
+  // From https://app.tina.io. The Client ID is a public project identifier
+  // (it ships inside the built /admin bundle either way). The token is a
+  // secret and must come from the TINA_TOKEN environment variable / GitHub
+  // Actions secret — never hard-code it.
+  clientId: process.env.TINA_CLIENT_ID || 'b4e69da7-1f3f-4cc1-8c43-83e583207eb5',
   token: process.env.TINA_TOKEN || '',
 
   build: {
