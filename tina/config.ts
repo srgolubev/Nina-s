@@ -314,8 +314,14 @@ export default defineConfig({
               ...titleFields,
               { type: 'string', name: 'intro', label: 'Intro', ui: { component: 'textarea' } },
               {
+                // nameOverride keeps the JSON key as "items" while giving the
+                // GraphQL field a unique name. Without this it collides with
+                // the string-list "items" field on the Credentials template
+                // (Tina/GraphQL forbids one field name with two types in a
+                // collection).
                 type: 'object',
-                name: 'items',
+                name: 'faqItems',
+                nameOverride: 'items',
                 label: 'Questions',
                 list: true,
                 ui: { itemProps: (item) => ({ label: item?.question || 'Question' }) },
