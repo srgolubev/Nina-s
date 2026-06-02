@@ -1,0 +1,73 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import RichText from '../../components/RichText.astro';
+import { withBase } from '../../lib/url';
+import { getPosts } from '../../lib/posts';
+
+export function getStaticPaths() {
+  return getPosts('resources').map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const site = Astro.site ?? new URL('https://srgolubev.github.io');
+const url = new URL(Astro.url.pathname, site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: article.title,
+  description: article.excerpt,
+  datePublished: article.publishedAt,
+  url,
+  mainEntityOfPage: url,
+  inLanguage: 'en',
+  author: {
+    '@type': 'Organization',
+    name: 'Tranquil Haven Coaching',
+    url: new URL(withBase('/'), site).href,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Tranquil Haven Coaching',
+    url: new URL(withBase('/'), site).href,
+    logo: {
+      '@type': 'ImageObject',
+      url: new URL(withBase('/images/logo.webp'), site).href,
+    },
+  },
+  articleSection: 'Resources',
+};
+---
+
+<Base
+  title={`${article.title} — Resources — Tranquil Haven Coaching`}
+  description={article.excerpt}
+  jsonLd={jsonLd}
+>
+  <Header />
+
+  <main class="page-main">
+    <div class="reading-canvas reading-canvas--page">
+      <article class="reading-article">
+        <p class="reading-eyebrow">Resources</p>
+        <h1 class="reading-title">{article.title}</h1>
+        <div class="reading-rule" aria-hidden="true"></div>
+        <RichText content={article.body} />
+        <div class="reading-rule reading-rule--bottom" aria-hidden="true"></div>
+      </article>
+      <p class="back-link">
+        <a href={withBase('/resources')}>
+          <span class="btn-caret btn-caret--back" aria-hidden="true">‹</span>
+          <span>All resources</span>
+        </a>
+      </p>
+    </div>
+  </main>
+
+  <Footer />
+</Base>

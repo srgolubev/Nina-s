@@ -23,9 +23,44 @@ const {
 } = page;
 
 const isExternal = (url: string) => /^https?:\/\//i.test(url);
+
+// Schema.org Service with an offer per package. This is what AI engines
+// reach for when answering "thoughtful coaching for women, what does it
+// cost?" Each package becomes a named Offer with USD price.
+const site = Astro.site ?? new URL('https://srgolubev.github.io');
+const priceNumber = (p: string) => Number(String(p).replace(/[^0-9.]/g, '')) || 0;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': new URL(withBase('/coaching'), site).href + '#service',
+  name: 'Tranquil Haven Coaching',
+  url: new URL(withBase('/coaching'), site).href,
+  description: intro,
+  serviceType: 'Coaching',
+  areaServed: 'Worldwide (online)',
+  availableLanguage: ['English', 'Russian'],
+  provider: {
+    '@type': 'Organization',
+    name: 'Tranquil Haven Coaching',
+    url: new URL(withBase('/'), site).href,
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: packagesTitle,
+    itemListElement: (packages || []).map((p: any) => ({
+      '@type': 'Offer',
+      name: p.name,
+      description: p.tagline,
+      price: priceNumber(p.price),
+      priceCurrency: 'USD',
+      category: p.sessionsLabel,
+      url: p.ctaHref,
+    })),
+  },
+};
 ---
 
-<Base title={seo.title} description={seo.description}>
+<Base title={seo.title} description={seo.description} jsonLd={jsonLd}>
   <Header />
   <PageHero title={title} tagline={tagline} />
 
