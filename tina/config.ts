@@ -94,6 +94,10 @@ export default defineConfig({
   build: {
     outputFolder: 'admin',
     publicFolder: 'public',
+    // On GitHub Pages the site is served from /Nina-s/, so the admin assets
+    // must be referenced from that sub-path too. BASE_PATH is "/Nina-s" in
+    // CI; Tina wants it without the leading slash. Empty/undefined locally.
+    basePath: (process.env.BASE_PATH || '').replace(/^\//, '') || undefined,
   },
   media: {
     tina: {
