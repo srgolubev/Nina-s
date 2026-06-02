@@ -101,40 +101,40 @@ export default {
     const slug = slugify(payload.slug || payload.title);
     const prompt = buildPrompt(payload);
 
-    // 1) Generate the image with OpenAI.
+    // 1) Generate the image with Google Gemini ("nano-banana": gemini-2.5
+    //    -flash-image). No org verification needed, just an AI Studio key.
     let b64;
     try {
-      const aiRes = await fetch('https://api.openai.com/v1/images/generations', {
+      const model = 'gemini-2.5-flash-image';
+      const url =
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent` +
+        `?key=${encodeURIComponent(env.GEMINI_API_KEY)}`;
+      const aiRes = await fetch(url, {
         method: 'POST',
-        headers: {
-          Authorization: `Bearer ${env.OPENAI_API_KEY}`,
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'gpt-image-2',
-          prompt,
-          size: '1024x1024',
-          quality: 'medium',
-          n: 1,
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { responseModalities: ['IMAGE'] },
         }),
       });
       if (!aiRes.ok) {
-        return json({ error: 'openai', detail: await aiRes.text() }, 502, cors);
+        return json({ error: 'gemini', detail: await aiRes.text() }, 502, cors);
       }
       const aiData = await aiRes.json();
-      const item = aiData.data && aiData.data[0];
-      if (!item) return json({ error: 'no image returned' }, 502, cors);
-      // The API may return either inline base64 or a temporary URL.
-      if (item.b64_json) {
-        b64 = item.b64_json;
-      } else if (item.url) {
-        const imgRes = await fetch(item.url);
-        if (!imgRes.ok) return json({ error: 'image download failed' }, 502, cors);
-        b64 = arrayBufferToBase64(await imgRes.arrayBuffer());
+      const parts =
+        (aiData.candidates &&
+          aiData.candidates[0] &&
+          aiData.candidates[0].content &&
+          aiData.candidates[0].content.parts) ||
+        [];
+      const imgPart = parts.find((p) => p.inlineData || p.inline_data);
+      const inline = imgPart && (imgPart.inlineData || imgPart.inline_data);
+      b64 = inline && inline.data;
+      if (!b64) {
+        return json({ error: 'no image returned', detail: JSON.stringify(aiData).slice(0, 500) }, 502, cors);
       }
-      if (!b64) return json({ error: 'no image data' }, 502, cors);
     } catch (e) {
-      return json({ error: 'openai request failed', detail: String(e) }, 502, cors);
+      return json({ error: 'gemini request failed', detail: String(e) }, 502, cors);
     }
 
     // 2) Commit it to the repo.

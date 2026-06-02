@@ -2,11 +2,12 @@
 
 A tiny Cloudflare Worker that powers the **"Generate image from post"**
 button in the Tina admin. It takes a post's title/excerpt/body, asks
-OpenAI to draw a calm, on-brand image, commits the PNG into the repo at
+Google Gemini ("nano-banana": gemini-2.5-flash-image) to draw a calm,
+on-brand image, commits the PNG into the repo at
 `public/images/posts/<slug>.png`, and returns the path (plus a base64
 preview for instant display in the editor).
 
-The OpenAI key and GitHub token live **only** inside the Worker as
+The Gemini key and GitHub token live **only** inside the Worker as
 secrets — they never reach the browser.
 
 ## One-time setup
@@ -27,9 +28,11 @@ secrets — they never reach the browser.
 
 3. **Add the secrets** (you'll be prompted to paste each value):
    ```
-   wrangler secret put OPENAI_API_KEY     # from platform.openai.com
+   wrangler secret put GEMINI_API_KEY     # from aistudio.google.com/apikey
    wrangler secret put GITHUB_TOKEN       # a fine-grained PAT, see below
    ```
+   The Gemini key is free to create at https://aistudio.google.com/apikey
+   (no organization verification required).
 
 4. **Set the plain vars** in `wrangler.toml` (already filled in, change
    if needed): `GITHUB_REPO`, `GITHUB_BRANCH`, `ALLOWED_ORIGIN`.
@@ -50,8 +53,8 @@ That's the minimum the Worker needs to commit the generated image.
 
 ## Cost
 
-Each image is one OpenAI image generation (DALL·E 3, ~$0.04–0.08).
-Cloudflare Workers' free tier is plenty for this volume.
+Each image is one Gemini 2.5 Flash Image generation (~$0.04, with a
+free tier for low volume). Cloudflare Workers' free tier is plenty.
 
 ## Re-deploying after changes
 
