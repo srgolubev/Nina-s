@@ -8,6 +8,8 @@ interface RawPost {
   publishedAt?: string;
   draft?: boolean;
   excerpt?: string;
+  image?: string;
+  imageAlt?: string;
   body?: string;
 }
 
@@ -18,6 +20,8 @@ export interface Post {
   publishedAt: string;
   draft: boolean;
   excerpt: string;
+  image: string;
+  imageAlt: string;
   body: string;
 }
 
@@ -36,6 +40,8 @@ const allPosts: Post[] = Object.values(modules)
     publishedAt: String(p.publishedAt ?? ''),
     draft: Boolean(p.draft),
     excerpt: String(p.excerpt ?? ''),
+    image: String(p.image ?? ''),
+    imageAlt: String(p.imageAlt ?? ''),
     body: typeof p.body === 'string' ? p.body : '',
   }))
   .filter((p) => p.category && p.slug && p.title);

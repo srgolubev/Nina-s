@@ -397,7 +397,7 @@ export default defineConfig({
           category: 'insights',
           publishedAt: new Date().toISOString(),
           draft: false,
-          body: [{ _template: 'paragraph', text: '' }],
+          body: '',
         }),
         fields: [
           {
@@ -434,6 +434,16 @@ export default defineConfig({
             name: 'excerpt',
             label: 'Excerpt (shown on the index card)',
             ui: { component: 'textarea' },
+          },
+          {
+            type: 'image',
+            name: 'image',
+            label: 'Social / preview image (generated or uploaded)',
+          },
+          {
+            type: 'string',
+            name: 'imageAlt',
+            label: 'Image description (for screen readers)',
           },
           bodyField('body', 'Post content'),
         ],
