@@ -19,7 +19,9 @@ const { sectionLabel, articles } = Astro.props;
   articles.map((article) => (
     <template data-article={article.slug}>
       <p class="reading-eyebrow">{sectionLabel}</p>
-      <h1>{article.title}</h1>
+      {/* h2 not h1: avoid multiple h1s on the section index page even though
+          the template contents are inert until JS clones them. */}
+      <h2 class="reading-title">{article.title}</h2>
       <div class="reading-rule" aria-hidden="true"></div>
       <RichText content={article.body} />
       <div class="reading-rule reading-rule--bottom" aria-hidden="true"></div>

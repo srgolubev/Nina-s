@@ -1133,7 +1133,8 @@ button { font: inherit; cursor: pointer; }
   opacity: 0.78;
   margin: 0 0 22px;
 }
-.reading-article h1 {
+.reading-article h1,
+.reading-article .reading-title {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 500;
