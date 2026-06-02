@@ -36,10 +36,25 @@ jobs:
         run: npm ci
 
       - name: Build site
-        run: npm run build
+        # When the TINA_TOKEN secret is present, build the editable /admin
+        # bundle too (build:cms). Without it, fall back to the plain build so
+        # the public site keeps deploying even before Tina Cloud is wired up.
+        run: |
+          if [ -n "$TINA_TOKEN" ]; then
+            echo "TINA_TOKEN present — building site with the Tina admin"
+            npm run build:cms
+          else
+            echo "No TINA_TOKEN — building the public site only"
+            npm run build
+          fi
         env:
           # Project site is served from https://srgolubev.github.io/Nina-s/
           BASE_PATH: /Nina-s
+          # Tina Cloud — Client ID is public, token comes from the secret.
+          TINA_CLIENT_ID: b4e69da7-1f3f-4cc1-8c43-83e583207eb5
+          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+          # Tina reads/writes content on the branch this workflow runs on.
+          GITHUB_BRANCH: ${{ github.ref_name }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
