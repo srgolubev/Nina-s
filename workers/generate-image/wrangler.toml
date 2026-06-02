@@ -2,11 +2,12 @@ name = "thaven-image"
 main = "src/index.mjs"
 compatibility_date = "2024-11-01"
 
-# Plain (non-secret) configuration. Secrets (OPENAI_API_KEY, GITHUB_TOKEN)
+# Plain (non-secret) configuration. Secrets (GEMINI_API_KEY, GITHUB_TOKEN)
 # are set with `wrangler secret put` and are never committed.
 [vars]
 GITHUB_REPO = "srgolubev/nina-s"
 GITHUB_BRANCH = "claude/review-plan-website-f8xS4"
-# Restrict who may call the Worker. Use the admin origin in production;
-# "*" is convenient while testing.
-ALLOWED_ORIGIN = "*"
+# Exact origins allowed to call the Worker. Comma-separated, no wildcard.
+# The Worker rejects any browser request from outside this list AND any
+# request without an Origin header (so curl/anonymous bots can't abuse it).
+ALLOWED_ORIGIN = "https://srgolubev.github.io"

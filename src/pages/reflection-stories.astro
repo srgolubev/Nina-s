@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
 import Reader from '../components/Reader.astro';
+import { withBase } from '../lib/url';
 import page from '../../content/pages/reflection-stories.json';
 import { getPosts } from '../lib/posts';
 
@@ -24,12 +25,21 @@ const articles = getPosts('reflection-stories');
           articles.map((article) => (
             <article class="insight-card reveal">
               <h2>
-                <a class="reader-link" href={`#${article.slug}`} data-slug={article.slug}>
+                <a
+                  class="reader-link"
+                  href={withBase(`/reflection-stories/${article.slug}`)}
+                  data-slug={article.slug}
+                >
                   {article.title}
                 </a>
               </h2>
               <p class="insight-excerpt">{article.excerpt}</p>
-              <a class="text-link reader-link" href={`#${article.slug}`} data-slug={article.slug}>
+              <a
+                class="text-link reader-link"
+                href={withBase(`/reflection-stories/${article.slug}`)}
+                data-slug={article.slug}
+                aria-label={`Read the story: ${article.title}`}
+              >
                 <span>Read the story</span>
                 <span class="btn-caret" aria-hidden="true">›</span>
               </a>

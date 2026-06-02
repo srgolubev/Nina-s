@@ -4,8 +4,41 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { withBase } from '../lib/url';
 import home from '../../content/pages/home.json';
+import siteData from '../../content/global/site.json';
 
 const { seo, hero, cards, cta } = home;
+
+// Schema.org identity for the practice — gives AI engines a stable entity
+// to attach the site's content to ("Tranquil Haven Coaching is …").
+const site = Astro.site ?? new URL('https://srgolubev.github.io');
+const siteUrl = new URL(withBase('/'), site).href;
+const sameAs = (siteData.socials || [])
+  .map((s: { url: string }) => s.url)
+  .filter((u: string) => u && u !== '#' && /^https?:/i.test(u));
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': siteUrl + '#org',
+  name: 'Tranquil Haven Coaching',
+  url: siteUrl,
+  description: seo.description,
+  logo: new URL(withBase('/images/logo.webp'), site).href,
+  image: new URL(withBase('/images/hero-coast.png'), site).href,
+  slogan: 'Less noise. More you.',
+  serviceType: 'Coaching',
+  areaServed: 'Worldwide (online)',
+  availableLanguage: ['English', 'Russian'],
+  sameAs,
+};
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': siteUrl + '#website',
+  url: siteUrl,
+  name: 'Tranquil Haven Coaching',
+  inLanguage: 'en',
+  publisher: { '@id': siteUrl + '#org' },
+};
 
 const PLACEHOLDER_CLASSES = [
   'media-placeholder--about',
@@ -19,7 +52,7 @@ const IMAGE_ICON =
   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3.3" y="5" width="17.4" height="14" rx="2.6"/><circle cx="8.6" cy="10" r="1.9"/><path d="M4 16.6l4.6-4.1 3.6 3.1 3-2.6 5.1 4.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 ---
 
-<Base title={seo.title} description={seo.description}>
+<Base title={seo.title} description={seo.description} jsonLd={[orgJsonLd, websiteJsonLd]}>
   <Header light />
 
   <!-- ====== HERO ====== -->

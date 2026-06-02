@@ -1,12 +1,30 @@
 ---
 import '../styles/global.css';
+import { withBase } from '../lib/url';
 
 interface Props {
   title: string;
   description?: string;
+  /** Path to a preview image used for OG/Twitter unfurls. Defaults to hero. */
+  ogImage?: string;
+  /** Optional JSON-LD object(s) to embed in <head> for SEO / AI engines. */
+  jsonLd?: object | object[];
 }
 
-const { title, description } = Astro.props;
+const { title, description, ogImage, jsonLd } = Astro.props;
+
+// Absolute URLs for canonical / OG / Twitter so unfurls and AI crawlers
+// work. Astro.url.pathname already includes the configured base path in
+// production builds, so we use it as-is for the canonical. Static asset
+// paths like "/images/..." don't include base, so they go through
+// withBase().
+const site = Astro.site ?? new URL('https://srgolubev.github.io');
+const canonical = new URL(Astro.url.pathname, site).href;
+const ogImagePath = withBase(ogImage || '/images/hero-coast.png');
+const ogImageUrl = new URL(ogImagePath, site).href;
+const faviconHref = withBase('/favicon.svg');
+const ogSiteName = 'Tranquil Haven Coaching';
+const jsonLdArr = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 ---
 
 <!DOCTYPE html>
@@ -16,12 +34,36 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="author" content="Tranquil Haven Coaching" />
+    <meta name="theme-color" content="#ECDEC8" />
+    <link rel="icon" type="image/svg+xml" href={faviconHref} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={ogSiteName} />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={ogImageUrl} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Italianno&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mulish:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
+
+    {jsonLdArr.map((obj) => (
+      <script type="application/ld+json" set:html={JSON.stringify(obj)} />
+    ))}
   </head>
   <body>
     <slot />

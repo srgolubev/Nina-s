@@ -1,6 +1,6 @@
 ---
 import site from '../../content/global/site.json';
-import { withBase } from '../lib/url';
+import { withBase, safeHref } from '../lib/url';
 
 const ICONS: Record<string, string> = {
   facebook:
@@ -33,7 +33,7 @@ const isExternal = (href: string) => /^[a-z]+:/i.test(href) || href.startsWith('
       {
         socials.map((s) => (
           <a
-            href={s.url}
+            href={safeHref(s.url)}
             aria-label={LABELS[s.platform]}
             target="_blank"
             rel="noopener noreferrer"
@@ -45,15 +45,19 @@ const isExternal = (href: string) => /^[a-z]+:/i.test(href) || href.startsWith('
     {
       footerLinks.length > 0 && (
         <nav class="footer-links" aria-label="Footer">
-          {footerLinks.map((link) => (
-            <a
-              href={withBase(link.href)}
-              target={isExternal(link.href) ? '_blank' : undefined}
-              rel={isExternal(link.href) ? 'noopener noreferrer' : undefined}
-            >
-              {link.label}
-            </a>
-          ))}
+          {footerLinks.map((link) => {
+            const ext = isExternal(link.href);
+            const href = ext ? safeHref(link.href) : withBase(link.href);
+            return (
+              <a
+                href={href}
+                target={ext ? '_blank' : undefined}
+                rel={ext ? 'noopener noreferrer' : undefined}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
       )
     }
