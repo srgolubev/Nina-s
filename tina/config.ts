@@ -1,4 +1,5 @@
 import { defineConfig } from 'tinacms';
+import { GenerateImageButton } from './fields/GenerateImageButton';
 
 // The branch TinaCMS reads/writes content on. In CI/hosting this is set
 // automatically; locally it falls back to "main".
@@ -438,7 +439,8 @@ export default defineConfig({
           {
             type: 'image',
             name: 'image',
-            label: 'Social / preview image (generated or uploaded)',
+            label: 'Social image (generated from the post — used for Facebook/Instagram, not shown on the site)',
+            ui: { component: GenerateImageButton },
           },
           {
             type: 'string',
