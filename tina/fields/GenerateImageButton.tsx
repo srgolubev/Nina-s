@@ -50,6 +50,29 @@ export const GenerateImageButton = wrapFieldsWithMeta(({ input, form }: any) => 
 
   const src = preview || (input.value ? input.value : '');
 
+  const SITE_BASE = 'https://srgolubev.github.io/Nina-s';
+
+  const download = () => {
+    // Prefer the in-memory preview (data URL); fall back to the published
+    // file once the post has been saved and the site rebuilt.
+    const href =
+      preview ||
+      (input.value
+        ? input.value.startsWith('http')
+          ? input.value
+          : SITE_BASE + input.value
+        : '');
+    if (!href) return;
+    const v = form.getState().values || {};
+    const name = (v.slug || 'post') + '.png';
+    const a = document.createElement('a');
+    a.href = href;
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  };
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
       <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
@@ -70,6 +93,23 @@ export const GenerateImageButton = wrapFieldsWithMeta(({ input, form }: any) => 
         >
           {loading ? 'Generating…' : 'Generate image from post'}
         </button>
+        {src && (
+          <button
+            type="button"
+            onClick={download}
+            style={{
+              background: '#fff',
+              border: '1px solid #5C8795',
+              color: '#5C8795',
+              borderRadius: 8,
+              padding: '8px 14px',
+              fontWeight: 600,
+              cursor: 'pointer',
+            }}
+          >
+            Download image
+          </button>
+        )}
         {input.value && (
           <button
             type="button"
