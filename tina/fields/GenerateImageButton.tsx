@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { wrapFieldsWithMeta } from 'tinacms';
 
-// ⬇️ After deploying the Cloudflare Worker (see workers/generate-image/),
-// paste its URL here and commit.
-const WORKER_URL = 'https://thaven-image.REPLACE-ME.workers.dev';
+// ⬇️ The deployed Cloudflare Worker URL (workers/generate-image/).
+const WORKER_URL = 'https://thaven-image.srgolubev.workers.dev';
 
 /**
  * Custom Tina field for the post "image" value. Renders a button that asks
