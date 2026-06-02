@@ -111,7 +111,7 @@ export default {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          model: 'dall-e-3',
+          model: 'gpt-image-1',
           prompt,
           size: '1024x1024',
           n: 1,
