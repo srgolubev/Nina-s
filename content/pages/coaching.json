@@ -14,6 +14,7 @@
     "Relocation and life transitions",
     "Emotional clarity and self-reflection",
     "Multicultural and immigrant experiences",
+    "Inclusivity of diverse relationship dynamics and identity experiences across gender, sexuality, and culture",
     "Reconnecting with personal identity and balance"
   ],
   "formatTitle": "Session Format",
@@ -28,7 +29,7 @@
     {
       "name": "Clarity Session",
       "sessionsLabel": "Single session",
-      "price": "$120",
+      "price": "$200",
       "tagline": "For gaining clarity on what's happening in your current situation and identifying your next step.",
       "description": "Focus on your current challenge, untangling confusion, and identifying what actually matters right now so the situation becomes easier to understand and next steps feel clearer.",
       "ctaLabel": "Book this session",
@@ -37,7 +38,7 @@
     {
       "name": "Focused Support Package",
       "sessionsLabel": "4 sessions",
-      "price": "$460",
+      "price": "$750",
       "tagline": "For working through a specific life or relationship situation with consistency and support.",
       "description": "Designed for clients who want more than one conversation — movement rather than one-time insight. Exploration of what's going on, what patterns are repeating, and how different responses can begin to show up in daily life.",
       "ctaLabel": "Book this package",
@@ -46,7 +47,7 @@
     {
       "name": "Deeper Work Package",
       "sessionsLabel": "8 sessions",
-      "price": "$880",
+      "price": "$1,400",
       "tagline": "For emotional patterns, relationship dynamics, and internal blocks that don't shift in one conversation.",
       "description": "A slower process focused on understanding what keeps repeating so change can begin in a grounded, realistic way over time.",
       "ctaLabel": "Book this package",
@@ -55,7 +56,7 @@
     {
       "name": "Life Transition Package",
       "sessionsLabel": "12 sessions",
-      "price": "$1,200",
+      "price": "$1,950",
       "tagline": "For longer-term support through a meaningful life change or emotional transition.",
       "description": "Steady support during periods of change, with space for reflection, grounding, and rebuilding internal clarity and self-trust while moving through transition.",
       "ctaLabel": "Book this package",
