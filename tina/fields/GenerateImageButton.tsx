@@ -50,7 +50,7 @@ export const GenerateImageButton = wrapFieldsWithMeta(({ input, form }: any) => 
 
   const src = preview || (input.value ? input.value : '');
 
-  const SITE_BASE = 'https://srgolubev.github.io/Nina-s';
+  const SITE_BASE = 'https://tranquilhaven.coach';
 
   const download = () => {
     // Prefer the in-memory preview (data URL); fall back to the published

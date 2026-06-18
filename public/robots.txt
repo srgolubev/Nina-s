@@ -30,4 +30,4 @@ Allow: /
 User-agent: Bytespider
 Disallow: /
 
-Sitemap: https://srgolubev.github.io/Nina-s/sitemap-index.xml
+Sitemap: https://tranquilhaven.coach/sitemap-index.xml

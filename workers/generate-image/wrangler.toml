@@ -10,4 +10,4 @@ GITHUB_BRANCH = "claude/review-plan-website-f8xS4"
 # Exact origins allowed to call the Worker. Comma-separated, no wildcard.
 # The Worker rejects any browser request from outside this list AND any
 # request without an Origin header (so curl/anonymous bots can't abuse it).
-ALLOWED_ORIGIN = "https://srgolubev.github.io"
+ALLOWED_ORIGIN = "https://tranquilhaven.coach,https://srgolubev.github.io"
