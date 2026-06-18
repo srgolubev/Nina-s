@@ -1,0 +1,73 @@
+name: Deploy to VPS
+
+# Build the site and rsync it to /var/www/tranquilhaven/dist on the VPS.
+# Runs on every push to the deploy branch (and can be triggered manually).
+
+on:
+  push:
+    branches:
+      - claude/review-plan-website-f8xS4
+  workflow_dispatch:
+
+concurrency:
+  group: vps-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        env:
+          TINA_CLIENT_ID: b4e69da7-1f3f-4cc1-8c43-83e583207eb5
+          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+          GITHUB_BRANCH: ${{ github.ref_name }}
+        # If TINA_TOKEN is present, bundle the admin too. The site itself
+        # is served from the domain root, so we do NOT set BASE_PATH.
+        run: |
+          if [ -n "$TINA_TOKEN" ]; then
+            echo "TINA_TOKEN present — building site + admin"
+            npm run build:cms
+          else
+            echo "No TINA_TOKEN — building public site only"
+            npm run build
+          fi
+
+      - name: Setup SSH
+        env:
+          SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Rsync dist/ to server
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+        run: |
+          rsync -avz --delete \
+            -e "ssh -o StrictHostKeyChecking=accept-new" \
+            dist/ \
+            "root@$VPS_HOST:/var/www/tranquilhaven/dist/"
+
+      - name: Reload nginx (no-op if config unchanged)
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+        run: |
+          ssh -o StrictHostKeyChecking=accept-new "root@$VPS_HOST" \
+            'nginx -t && systemctl reload nginx'

@@ -1,0 +1,38 @@
+name: Provision VPS (one-shot)
+
+# One-time (idempotent) server setup: installs nginx, certbot, the
+# firewall, writes the site config, and obtains an SSL certificate.
+# Trigger manually from the Actions tab after the SSH key, host, domain
+# and email secrets are in place and DNS points at the server.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  provision:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        env:
+          SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Run provision script over SSH
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_DOMAIN: ${{ secrets.VPS_DOMAIN }}
+          VPS_EMAIL: ${{ secrets.VPS_EMAIL }}
+        run: |
+          # Pipe the script to bash on the server, exporting DOMAIN/EMAIL.
+          ssh -o StrictHostKeyChecking=accept-new "root@$VPS_HOST" \
+            "DOMAIN='$VPS_DOMAIN' EMAIL='$VPS_EMAIL' bash -s" \
+            < scripts/provision-server.sh
