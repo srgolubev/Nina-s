@@ -33,6 +33,9 @@ jobs:
           VPS_EMAIL: ${{ secrets.VPS_EMAIL }}
         run: |
           # Pipe the script to bash on the server, exporting DOMAIN/EMAIL.
-          ssh -o StrictHostKeyChecking=accept-new "root@$VPS_HOST" \
+          # SSH user is "rootor" (see VPS notes). The script itself uses
+          # sudo for privileged steps, so this works whether rootor is
+          # UID 0 or a sudo-enabled user.
+          ssh -o StrictHostKeyChecking=accept-new "rootor@$VPS_HOST" \
             "DOMAIN='$VPS_DOMAIN' EMAIL='$VPS_EMAIL' bash -s" \
             < scripts/provision-server.sh
