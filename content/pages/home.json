@@ -20,7 +20,7 @@
       "image": "/images/coach.jpg",
       "imageAlt": "Tranquil Haven Coaching — coach portrait",
       "body": "Guiding you to a place of calm and clarity",
-      "buttonLabel": "Learn More",
+      "buttonLabel": "Learn more",
       "buttonHref": "/about",
       "buttonStyle": "primary"
     },
@@ -47,8 +47,8 @@
   ],
   "cta": {
     "heading": "Ready to Find Your Haven?",
-    "text": "Get in touch to begin your journey.",
-    "buttonLabel": "Contact Me",
-    "buttonHref": "/contact"
+    "text": "Find the session or package that fits where you are right now.",
+    "buttonLabel": "Book a session",
+    "buttonHref": "/coaching"
   }
 }
