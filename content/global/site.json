@@ -9,6 +9,7 @@
     {
       "label": "Inner Compass",
       "children": [
+        { "label": "Behind the Scrubs", "href": "/behind-the-scrubs" },
         { "label": "Insights", "href": "/insights" },
         { "label": "Resources", "href": "/resources" },
         { "label": "Reflection Stories", "href": "/reflection-stories" }

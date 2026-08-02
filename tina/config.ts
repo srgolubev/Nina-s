@@ -16,6 +16,7 @@ const ROUTES: Record<string, string> = {
   about: '/about',
   coaching: '/coaching',
   credentials: '/credentials',
+  'behind-the-scrubs': '/behind-the-scrubs',
   insights: '/insights',
   resources: '/resources',
   'reflection-stories': '/reflection-stories',
@@ -229,6 +230,18 @@ export default defineConfig({
             ],
           },
           {
+            // Tina template names must be alphanumeric/underscore only, so
+            // this template is behind_the_scrubs and the JSON file carries
+            // "_template": "behind_the_scrubs" to match.
+            name: 'behind_the_scrubs',
+            label: 'Behind the Scrubs',
+            fields: [
+              seoField,
+              ...titleFields,
+              { type: 'string', name: 'intro', label: 'Intro', ui: { component: 'textarea' } },
+            ],
+          },
+          {
             name: 'insights',
             label: 'Insights',
             fields: [
@@ -407,6 +420,7 @@ export default defineConfig({
             label: 'Category',
             required: true,
             options: [
+              { value: 'behind-the-scrubs', label: 'Behind the Scrubs' },
               { value: 'insights', label: 'Insights' },
               { value: 'resources', label: 'Resources' },
               { value: 'reflection-stories', label: 'Reflection Stories' },
@@ -416,7 +430,7 @@ export default defineConfig({
           {
             type: 'string',
             name: 'slug',
-            label: 'URL slug (used in the link, e.g. /insights#<slug>)',
+            label: 'URL slug (used in the article link)',
             required: true,
           },
           {

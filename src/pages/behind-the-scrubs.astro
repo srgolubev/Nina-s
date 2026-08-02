@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import Reader from '../components/Reader.astro';
+import { withBase } from '../lib/url';
+import page from '../../content/pages/behind-the-scrubs.json';
+import { getPosts } from '../lib/posts';
+
+const { seo, title, tagline, intro } = page;
+const articles = getPosts('behind-the-scrubs');
+const emptyCards = Array.from({ length: 3 });
+---
+
+<Base title={seo.title} description={seo.description}>
+  <Header />
+  <PageHero title={title} tagline={tagline} />
+
+  <main class="page-main">
+    <div class="container">
+      {intro && <p class="lead lead--center reveal">{intro}</p>}
+
+      <div class="insight-grid">
+        {
+          articles.length > 0 ? articles.map((article) => (
+            <article class="insight-card reveal">
+              <h2>
+                <a
+                  class="reader-link"
+                  href={withBase(`/behind-the-scrubs/${article.slug}`)}
+                  data-slug={article.slug}
+                >
+                  {article.title}
+                </a>
+              </h2>
+              <p class="insight-excerpt">{article.excerpt}</p>
+              <a
+                class="text-link reader-link"
+                href={withBase(`/behind-the-scrubs/${article.slug}`)}
+                data-slug={article.slug}
+                aria-label={`Read reflection: ${article.title}`}
+              >
+                <span>Read reflection</span>
+                <span class="btn-caret" aria-hidden="true">›</span>
+              </a>
+            </article>
+          )) : emptyCards.map(() => <article class="insight-card insight-card--empty reveal" aria-hidden="true" />)
+        }
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+
+  <Reader sectionLabel="Behind the Scrubs" articles={articles} />
+</Base>

@@ -1142,6 +1142,14 @@ button { font: inherit; cursor: pointer; }
   transform: translateY(-4px);
   box-shadow: 0 24px 50px -22px rgba(64,69,63,0.32), 0 4px 10px -2px rgba(64,69,63,0.12);
 }
+.insight-card--empty {
+  min-height: 220px;
+  pointer-events: none;
+}
+.insight-card--empty:hover {
+  transform: none;
+  box-shadow: var(--shadow-card);
+}
 .insight-card h2 {
   margin: 0 0 14px;
   font-family: var(--font-serif);
