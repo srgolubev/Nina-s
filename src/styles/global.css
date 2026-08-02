@@ -1408,17 +1408,8 @@ body.is-reading .site-footer {
 .reader-overlay.is-open .reading-article > * {
   opacity: 1;
   transform: none;
+  transition-delay: var(--reader-delay, 0.85s);
 }
-.reader-overlay.is-open .reading-article > *:nth-child(1)  { transition-delay: 0.85s; }
-.reader-overlay.is-open .reading-article > *:nth-child(2)  { transition-delay: 0.93s; }
-.reader-overlay.is-open .reading-article > *:nth-child(3)  { transition-delay: 1.01s; }
-.reader-overlay.is-open .reading-article > *:nth-child(4)  { transition-delay: 1.09s; }
-.reader-overlay.is-open .reading-article > *:nth-child(5)  { transition-delay: 1.17s; }
-.reader-overlay.is-open .reading-article > *:nth-child(6)  { transition-delay: 1.25s; }
-.reader-overlay.is-open .reading-article > *:nth-child(7)  { transition-delay: 1.33s; }
-.reader-overlay.is-open .reading-article > *:nth-child(8)  { transition-delay: 1.41s; }
-.reader-overlay.is-open .reading-article > *:nth-child(9)  { transition-delay: 1.49s; }
-.reader-overlay.is-open .reading-article > *:nth-child(10) { transition-delay: 1.57s; }
 
 .reader-overlay .reading-close-wrap {
   opacity: 0;
@@ -1426,7 +1417,7 @@ body.is-reading .site-footer {
 }
 .reader-overlay.is-open .reading-close-wrap {
   opacity: 1;
-  transition-delay: 1.6s;
+  transition-delay: var(--reader-close-delay, 1.6s);
 }
 
 @media (prefers-reduced-motion: reduce) {

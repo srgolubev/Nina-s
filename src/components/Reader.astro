@@ -54,6 +54,7 @@ const { sectionLabel, articles, closeLabel = 'Close reflection' } = Astro.props;
     if (!overlay) return;
     const content = overlay.querySelector<HTMLElement>('[data-reader-content]');
     const closeBtn = overlay.querySelector<HTMLButtonElement>('[data-reader-close]');
+    const closeWrap = overlay.querySelector<HTMLElement>('.reading-close-wrap');
     if (!content || !closeBtn) return;
 
     let lastFocused: HTMLElement | null = null;
@@ -76,6 +77,14 @@ const { sectionLabel, articles, closeLabel = 'Close reflection' } = Astro.props;
 
       content.innerHTML = '';
       content.appendChild(tpl.content.cloneNode(true));
+      Array.from(content.children).forEach((child, index) => {
+        const delay = Math.min(0.85 + index * 0.08, 2.9);
+        (child as HTMLElement).style.setProperty('--reader-delay', `${delay}s`);
+      });
+      closeWrap?.style.setProperty(
+        '--reader-close-delay',
+        `${Math.min(1.05 + content.children.length * 0.08, 3.1)}s`,
+      );
       overlay.scrollTop = 0;
 
       document.body.classList.add('is-reading');
