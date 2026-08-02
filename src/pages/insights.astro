@@ -38,9 +38,9 @@ const articles = getPosts('insights');
                 class="text-link reader-link"
                 href={withBase(`/insights/${article.slug}`)}
                 data-slug={article.slug}
-                aria-label={`Read reflection: ${article.title}`}
+                aria-label={`Read insight: ${article.title}`}
               >
-                <span>Read reflection</span>
+                <span>Read insight</span>
                 <span class="btn-caret" aria-hidden="true">›</span>
               </a>
             </article>
@@ -52,5 +52,5 @@ const articles = getPosts('insights');
 
   <Footer />
 
-  <Reader sectionLabel="Insights" articles={articles} />
+  <Reader sectionLabel="Insights" articles={articles} closeLabel="Close insight" />
 </Base>

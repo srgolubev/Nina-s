@@ -10,9 +10,10 @@ interface Article {
 interface Props {
   sectionLabel: string;
   articles: Article[];
+  closeLabel?: string;
 }
 
-const { sectionLabel, articles } = Astro.props;
+const { sectionLabel, articles, closeLabel = 'Close reflection' } = Astro.props;
 ---
 
 {
@@ -41,7 +42,7 @@ const { sectionLabel, articles } = Astro.props;
     <div class="reading-close-wrap">
       <button class="reading-close" type="button" data-reader-close>
         <span class="reading-close-mark" aria-hidden="true">✕</span>
-        <span>Close reflection</span>
+        <span>{closeLabel}</span>
       </button>
     </div>
   </div>
