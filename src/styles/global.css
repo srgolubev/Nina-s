@@ -835,6 +835,10 @@ button { font: inherit; cursor: pointer; }
   color: var(--teal-ink);
   word-break: break-word;
 }
+.contact-note {
+  width: 120%;
+  margin-left: -10%;
+}
 @media (max-width: 720px) {
   .contact-channels {
     width: auto;
@@ -842,6 +846,10 @@ button { font: inherit; cursor: pointer; }
     grid-template-columns: 1fr;
     gap: 14px;
     margin: 28px 0 24px;
+  }
+  .contact-note {
+    width: auto;
+    margin-left: 0;
   }
   .contact-channel { padding: 22px 18px; }
 }
